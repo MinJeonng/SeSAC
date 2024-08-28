@@ -135,6 +135,7 @@
     border-radius: 8px;
     display: flex;
     .leftMenu {
+      overflow: scroll;
       width: 400px;
       height: 1048px;
       background-color: #713574;
@@ -223,7 +224,7 @@
             align-items: center;
             color: #ffffff;
           }
-          .memberInfo {
+          #defaultMsg {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -335,7 +336,7 @@
           height: 48px;
           border-radius: 8px;
           padding: 12px 16px;
-          background-color: #491449;
+          background-color: #c7c7c7;
           color: #f2f2f2;
           font-size: 20px;
           font-weight: 600;
@@ -350,7 +351,7 @@
           padding: 0 56px;
           gap: 20px;
           width: 560px;
-          height: 612px;
+          height: auto;
 
           .agreeBtn {
             margin-top: 20px;
@@ -501,6 +502,15 @@
           box-shadow: 0px 0px 40px 0px #d389ff;
           border-radius: 0px;
         }
+      }
+
+      .error {
+        color: #e84f4f;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        margin-left: 130px;
+        margin-top: 0;
       }
     }
   }

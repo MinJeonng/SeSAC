@@ -93,9 +93,11 @@
                 </div>
               </div>
               <div class="memberInfo">
-                <p>현재 가입한 멤버가 없어요.</p>
-                <p>회원가입 해보세요.</p>
-                <button><img src="./img/person_add.png" />가입하기</button>
+                <div id="defaultMsg">
+                  <p>현재 가입한 멤버가 없어요.</p>
+                  <p>회원가입 해보세요.</p>
+                  <button><img src="./img/person_add.png" />가입하기</button>
+                </div>
               </div>
             </div>
             <div class="channel">
@@ -139,6 +141,7 @@
                   id="memberName"
                   type="text"
                   placeholder="이름을 입력해 주세요."
+                  oninput="invalidBtnFunc()"
                 />
               </div>
               <div class="form_detail">
@@ -147,14 +150,18 @@
                   id="emailInfo"
                   type="email"
                   placeholder="네이버, 구글, 한메일, 카카오 계정만 입력"
+                  oninput="invalidBtnFunc()"
                 />
               </div>
+              <div id="emailError" class="error"></div>
+
               <div class="form_detail">
                 <p>비밀번호</p>
                 <input
                   id="pw"
                   type="password"
                   placeholder="비밀번호를 입력해 주세요."
+                  oninput="invalidBtnFunc()"
                 />
               </div>
               <div class="form_detail">
@@ -163,16 +170,20 @@
                   id="confirmPW"
                   type="password"
                   placeholder="비밀번호를 한번 더 입력해 주세요."
+                  oninput="invalidBtnFunc(); checkPwFunc();"
                 />
               </div>
+              <div id="pwError" class="error"></div>
               <div class="form_detail">
                 <p>전화번호</p>
                 <input
                   id="phone"
                   type="text"
-                  placeholder="010으로 시작, '-'를 꼭 입력해 주세요."
+                  placeholder="010으로 시작하여 입력해주세요."
+                  oninput="invalidBtnFunc(); formatPhoneNumber();"
                 />
               </div>
+              <div class="error" id="phoneError"></div>
               <div class="verifyNumber">
                 <div class="call">
                   <p id="authNum"></p>
@@ -195,28 +206,48 @@
                   id="userInfo"
                   rows="4"
                   placeholder="자기소개를 입력해주세요."
+                  oninput="invalidBtnFunc()"
                 ></textarea>
               </div>
               <div class="form_gender">
                 <p>성별</p>
                 <div class="gender">
                   <div class="gender1">
-                    <input type="radio" name="gender" id="women" value="여성" />
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="women"
+                      value="여성"
+                      oninput="invalidBtnFunc()"
+                    />
                     <label for="women">여성</label>
                   </div>
                   <div class="gender1">
-                    <input type="radio" name="gender" id="men" value="남성" />
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="men"
+                      value="남성"
+                      oninput="invalidBtnFunc()"
+                    />
                     <label for="men">남성</label>
                   </div>
                 </div>
               </div>
               <div class="agreeBtn">
                 <!-- 현재 동의하면 값이 true로 들어감 -->
-                <input type="checkbox" id="info" value="Y" />
+                <input
+                  type="checkbox"
+                  id="info"
+                  value="Y"
+                  oninput="invalidBtnFunc()"
+                />
                 <label for="info">집에는 씻으러만 가는데 동의합니다.</label>
               </div>
             </div>
-            <button class="registerBtn" onclick="registerFunc()">가입</button>
+            <button class="registerBtn" onclick="registerFunc()" disabled>
+              가입
+            </button>
           </div>
           <div class="mainImg">
             <img src="./img/mainimg.png" />
