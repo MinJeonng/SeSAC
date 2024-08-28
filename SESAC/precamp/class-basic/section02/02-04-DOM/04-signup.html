@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>회원가입</title>
+    <script>
+      let number = 1;
+      function showMember(member) {
+        //가입자 보여주는 기능
+        alert(`${member} 라는 사람을 클릭하셨군`);
+      }
+
+      function registerBtn() {
+        const member = document.getElementById('memberName').value;
+
+        //innerHTML => 하면 함수도 또 넣을수 있고 인자도 보낼 수 있음
+        document.getElementById(
+          'memberInfo'
+        ).innerHTML = `<div onclick="showMember('${member}')">${member}</div>`;
+        alert('회원가입이 완료되었습니다.');
+        document.getElementById('memberName').value = '';
+      }
+    </script>
+  </head>
+  <body>
+    <div id="memberInfo"></div>
+    이름을 입력하세요 : <input type="text" id="memberName" />
+    <button onclick="registerBtn()">회원가입</button>
+  </body>
+</html>

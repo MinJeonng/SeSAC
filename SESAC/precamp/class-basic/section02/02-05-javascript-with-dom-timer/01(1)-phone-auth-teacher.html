@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //인증번호 요청하기 버튼을 또 누르면 interval때문에 분초가 깜박이는 현상 생김
+      // 1. 버튼을 한번 누르면 못눌리게 2. 누를떄마다 분초가 초기화되게
+
+      function authBtn() {
+        const num = String(Math.floor(Math.random() * 1000000)).padStart(
+          6,
+          '0'
+        ); //6칸잡아두고 없는 값은 앞에서 0으로 채워주라는 뜻. 만약 padEnd하면 뒤에 비는걸 0으로 대체
+        document.getElementById('showAuthNum').innerText = num;
+
+        let time = 179;
+        setInterval(function () {
+          const minute = Math.floor(time / 60);
+          const second = String(time % 60).padStart(2, '0');
+          document.getElementById('leftTime').innerText = `${minute}:${second}`;
+
+          time = time - 1;
+
+          if (time <= 0) {
+            clearInterval();
+          }
+        }, 1000);
+
+        //1. 버튼 두번 안눌리게
+        document.getElementById('authButton').disabled = true;
+        document.getElementById('authButton').style = 'color : red';
+        document.getElementById('authButton').innerText = '인증번호 요청됨';
+
+        //2번은 다른 파일
+      }
+    </script>
+  </head>
+  <body>
+    <div id="showAuthNum">000000</div>
+    <button id="authButton" onclick="authBtn()">인증번호 요청하기</button>
+    <div id="leftTime">3:00</div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>타이머를 위한 내장함수</title>
+    <script>
+      //setTimeout(기능,초) : 시간 지연함수
+      //function의 이름이 없음, 이걸 어디다가 쓰는게 아니라 이 함수가 시작되면서 같이 되는거라 굳이
+      //이름 필요없음
+      setTimeout(function () {
+        console.log('3초지남');
+      }, 3000);
+
+      //setInterval(기능, 초) : 시간 반복함수
+      setInterval(function () {
+        console.log('4초마다 한번씩 실행');
+      }, 4000);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>flexbox 실습</title>
+    <style>
+      .town {
+        background-color: blanchedalmond;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; 이게 적용안되는 이유는 부모의 높이가 작아 움직일때가 없어서임 그걸 늘려주면됌 */
+        justify-content: center;
+        height: 500px;
+        .home {
+          width: 100px;
+          height: 100px;
+
+          &.home1 {
+            background-color: violet;
+          }
+          &.home2 {
+            background-color: rgb(176, 176, 223);
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="town">
+      <div class="home home1">유월이네 집</div>
+      <div class="home home2">뭉치의 집</div>
+    </div>
+  </body>
+</html>

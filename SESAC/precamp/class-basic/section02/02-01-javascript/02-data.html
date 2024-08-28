@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>다양한 데이터 저장 실습</title>
+    <script>
+      //1. 변수
+      let myName = '민졍';
+      myName = '태섭';
+      console.log(myName);
+
+      //const 는 바꿀 수 없기에 재할당 안됌. 그래서 당연히 에러~
+      const name = '철수';
+      // name = "민지"
+      console.log(name);
+
+      //2. 변수의 계산
+      const money = 1000;
+      const money1 = 5000;
+      const total = money + money1;
+      console.log('총합계', total); //6000
+
+      const money2 = '1000';
+      const money3 = '5000';
+      const total1 = money2 + money3;
+      console.log('총합계', total1); // 10005000
+
+      const money4 = '1000';
+      const money5 = 5000;
+      const total2 = money4 + money5;
+      console.log('총합계', total2); //10005000
+
+      // 3. 객체에 저장하기 : 성격이 다른 데이터 저장할 때 쓰임
+      const studentCard = {
+        name: '철수',
+        age: 20,
+        school: '집보내줘대학교',
+      };
+      const studentCard1 = {
+        name: '영희',
+        age: 22,
+        school: '집갔다대학교',
+      };
+      const studentCard2 = {
+        name: '리라',
+        age: 23,
+        school: '나도갈래대학교',
+      };
+      console.log(studentCard.school);
+      console.log(studentCard1.name);
+      console.log(studentCard2.age);
+
+      //4. 배열에 저장하기
+      const candyBags = ['포도맛', '파인애플맛', '딸기맛'];
+      const studentCardList = [studentCard, studentCard1, studentCard2];
+
+      console.log(candyBags[0]);
+      console.log(candyBags.length);
+
+      candyBags.push('노맛');
+
+      console.log(studentCardList[1]);
+      //배열의 맨 마지막을 확인하고 싶으면 아래와 같음
+      console.log(studentCardList[studentCardList.length - 1]);
+
+      //하지만 실무에선 저 뜻이 저건지 모를 수 잇으므로 변수로
+      const lastList = studentCardList.length - 1;
+      console.log(studentCardList[lastList]);
+
+      //5. 배열안의 객체에서 추출
+      console.log(studentCardList[0].age);
+    </script>
+  </head>
+  <body></body>
+</html>

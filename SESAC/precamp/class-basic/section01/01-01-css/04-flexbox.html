@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>flexbox 실습</title>
+    <style>
+      .town {
+        display: flex;
+        /* 해당방향으로 정렬하는거 justify-content */
+        /* 해당방향에서 수직으로 정렬하는게 align-items */
+        justify-content: space-between;
+        /* justify-content: center; */
+        /* flex-end : 수직방향으로 맨 아래쪽에 정렬하는 것 */
+        align-items: flex-end;
+        width: 500px;
+        height: 500px;
+        border: 1px solid black;
+        margin: 0 auto;
+        .home {
+          width: 100px;
+          height: 100px;
+          background-color: violet;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="town">
+      <div class="home home1">유월이네 집</div>
+      <div class="home home2">뭉치의 집</div>
+    </div>
+  </body>
+</html>

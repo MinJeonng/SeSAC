@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>email 쪼개기 실습</title>
+    <script>
+      const email = 'codecamp@gmail.com';
+      const result = email.split('@');
+      console.log(result);
+
+      const emailHeader = result[0];
+      const emailFooter = result[1];
+      console.log(emailHeader, emailFooter);
+
+      const newEmail1 = emailHeader.slice(0, 4);
+      const new1 = '***';
+      const la = newEmail1 + new1;
+      console.log(la);
+    </script>
+  </head>
+  <body></body>
+</html>

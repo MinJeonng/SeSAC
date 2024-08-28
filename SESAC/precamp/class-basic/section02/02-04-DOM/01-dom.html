@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM(document => HTML문서) 조작하기</title>
+    <script>
+      function changeFunc() {
+        document.getElementById('hello').innerText = '반갑습니다.';
+      }
+    </script>
+  </head>
+  <body>
+    <div id="hello">안녕하세요</div>
+    <button onclick="changeFunc()">바꾸자</button>
+  </body>
+</html>

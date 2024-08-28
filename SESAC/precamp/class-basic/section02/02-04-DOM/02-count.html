@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>카운트 실습</title>
+    <script>
+      function plusFunc() {
+        const num = document.getElementById('count').innerText;
+        const total = Number(num + 1);
+      }
+      function minusFunc() {}
+    </script>
+  </head>
+  <body>
+    <div id="count">0</div>
+    <button onclick="plusFunc()">+</button>
+    <button onclick="minusFunc()">-</button>
+  </body>
+</html>

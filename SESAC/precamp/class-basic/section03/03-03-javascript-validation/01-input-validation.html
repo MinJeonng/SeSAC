@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>input 검증 실습</title>
+    <script>
+      function inputValidationFunc() {
+        const email = document.getElementById('email').value;
+        const selectGender = document.getElementById('gender_1').checked;
+        const selectGender_1 = document.getElementById('gender_2').checked;
+        const agree = document.getElementById('check').checked;
+        const btn = document.getElementById('btn');
+
+        if (email !== '' && (selectGender || selectGender_1) && agree) {
+          btn.disabled = false;
+          btn.style.backgroundColor = 'yellow';
+          btn.style.cursor = 'pointer';
+        } else {
+          btn.disabled = true;
+          btn.style.backgroundColor = '';
+        }
+      }
+    </script>
+  </head>
+  <body>
+    이메일 :
+    <input id="email" type="text" oninput="inputValidationFunc()" /><br />
+    <input
+      id="gender_1"
+      type="radio"
+      name="gender"
+      oninput="inputValidationFunc()"
+    />여성
+    <input
+      id="gender_2"
+      type="radio"
+      name="gender"
+      oninput="inputValidationFunc()"
+    />남성
+    <input
+      id="check"
+      type="checkbox"
+      oninput="inputValidationFunc()"
+    />동의합니까? <br />
+    <button id="btn" disabled>회원가입</button>
+  </body>
+</html>

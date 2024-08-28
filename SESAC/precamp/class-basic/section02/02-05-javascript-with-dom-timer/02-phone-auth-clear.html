@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //인증번호 요청하기 버튼을 또 누르면 interval때문에 분초가 깜박이는 현상 생김
+      // 1. 버튼을 한번 누르면 못눌리게 2. 누를떄마다 분초가 초기화되게
+
+      let timer; //2. 한번 더 버튼 누르면 기존의 분초 초기화
+      function authBtn() {
+        clearInterval(timer); //즉 이 함수가 실행되면 처음에 초기화를 시켜버리는 거지. 그러면
+        //두번째로 클릭하면 function이 다시 실행될때 timer에 들어있는 기존께 삭제가 되고 새로운 interval가 생길것
+        const num = String(Math.floor(Math.random() * 1000000)).padStart(
+          6,
+          '0'
+        ); //6칸잡아두고 없는 값은 앞에서 0으로 채워주라는 뜻. 만약 padEnd하면 뒤에 비는걸 0으로 대체
+        document.getElementById('showAuthNum').innerText = num;
+
+        let time = 179;
+        timer = setInterval(function () {
+          const minute = Math.floor(time / 60);
+          const second = String(time % 60).padStart(2, '0');
+          document.getElementById('leftTime').innerText = `${minute}:${second}`;
+
+          time = time - 1;
+        }, 1000);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="showAuthNum">000000</div>
+    <button id="authButton" onclick="authBtn()">인증번호 요청하기</button>
+    <div id="leftTime">3:00</div>
+  </body>
+</html>

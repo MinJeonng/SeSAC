@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>기초 css 실습</title>
+    <style>
+      * {
+        margin: 0 auto;
+      }
+      #box1 {
+        width: 50px;
+        height: 50px;
+        border: 3px dotted rgb(13, 126, 231);
+        background-color: beige;
+        color: red;
+        padding: 10px;
+        /* 내용박스가 아닌 테두리 박스를 따라가라. */
+        /* box-sizing: border-box; */
+      }
+      .box2 {
+        width: 100px;
+        height: 100px;
+        border: 1px solid green;
+        margin-top: 10px;
+      }
+      button {
+        color: aquamarine;
+        font-weight: bold;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box1">사과</div>
+    <div class="box2">물렁한 복숭아</div>
+    <button>불 키쟈</button>
+    <button>세탁기 켜자</button><button>조명키기</button>
+  </body>
+</html>

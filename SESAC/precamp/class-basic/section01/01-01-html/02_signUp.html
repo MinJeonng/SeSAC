@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>나만의 회원가입 실습</title>
+    <script src="signUp.js"></script>
+    <link rel="stylesheet" href="signUp.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="titleContainer">
+        <p class="title">회원가입을 위해</p>
+        <p class="title">정보를 입력해주세요.</p>
+      </div>
+
+      <div class="detail">
+        <p class="detail_1">* 이메일</p>
+        <input id="email" class="detail_info" type="text" />
+      </div>
+      <div class="detail">
+        <p class="detail_1">* 이름</p>
+        <input class="detail_info" type="text" />
+      </div>
+      <div class="detail">
+        <p class="detail_1">* 비밀번호</p>
+        <input class="detail_info" type="password" />
+      </div>
+      <div class="detail">
+        <p class="detail_1">* 비밀번호 확인</p>
+        <input class="detail_info" type="password" />
+      </div>
+      <div class="detail_gender">
+        <label name="gender" for="select_gender"
+          ><input type="radio" name="gender" id="select_gender" />여성</label
+        >
+        <label name="gender" for="select_gender"
+          ><input type="radio" name="gender" id="select_gender" />남성</label
+        >
+      </div>
+      <div class="detail_info">
+        <label name="info" for="select_info">
+          <input type="checkbox" name="info" id="select_info" /> 이용약관
+          개인정보 수집 및 이용, 마케팅 활용 선택에 모두 동의합니다.
+        </label>
+      </div>
+
+      <!-- <select>
+        <optgroup label="성별">
+          <option>남자</option>
+          <option>여자</option>
+        </optgroup>
+        <optgroup label="지역">
+          <option>서울</option>
+          <option>인천</option>
+        </optgroup>
+      </select>
+      <select>
+        <option disabled selected>지역</option>
+        <option value="">서울</option>
+        <option value="">경기</option>
+        <option value="">인천</option>
+      </select> -->
+
+      <hr />
+
+      <button id="registerBtn" onclick="registerFunc()">가입하기</button>
+      <!-- <input type="button" value="취소" /> -->
+    </div>
+  </body>
+</html>

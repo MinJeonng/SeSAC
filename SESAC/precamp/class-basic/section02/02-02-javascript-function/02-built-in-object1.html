@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내장 객체 실습</title>
+    <script>
+      ///1. 수학객체
+      const math = {
+        max: function () {
+          console.log('최대값을 구합니다.');
+        },
+        random: function () {
+          return 5;
+        },
+        round: function (value1) {
+          console.log('반올림할 대상 : ' + value1);
+        },
+      };
+      math.max();
+      const makeNum = math.random();
+      console.log(makeNum);
+
+      const randomNum = Math.random();
+      console.log(randomNum);
+
+      // 2.날짜객체
+      const myDate = new Date();
+      console.log(myDate);
+      console.log(myDate.getFullYear());
+      console.log(myDate.getMonth() + 1);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>구매하기 실습</title>
+    <script>
+      // 실무에서는 주로 함수를 먼저 만들고 onclick에 적용함
+      // why? 함수를 만들어놓고 안써도 괜찮지만, 그 반대는 에러나니까
+      function buyFunc() {
+        alert('구매할 금액은 다음과 같습니다.');
+        alert(1000 + 5000);
+      }
+    </script>
+  </head>
+  <body>
+    <div>1000+5000</div>
+    <button onclick="buyFunc()">구매하기</button>
+  </body>
+</html>
