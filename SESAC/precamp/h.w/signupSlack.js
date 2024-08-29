@@ -136,7 +136,14 @@ function displayMember(userInfo) {
 }
 
 let isAuthNumRequested = false;
+let intervalId;
 function requestAuthNum() {
+  // 기존 타이머가 실행 중이라면 정지
+  if (intervalId) {
+    clearInterval(intervalId);
+    disableVerifyButton(); // 버튼 비활성화
+  }
+
   let time = 180;
   const randomNum = String(Math.floor(Math.random() * 1000000)).padStart(
     6,
@@ -153,7 +160,7 @@ function requestAuthNum() {
 
   updateTimer(time);
 
-  const intervalId = setInterval(function () {
+  intervalId = setInterval(function () {
     time = time - 1;
     updateTimer(time);
     if (time <= 0) {
