@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //1.기초법 실습
+      const friend = ['리라', '팩트', '라이브'];
+      const class1 = friend.map((el) => el + '어린이');
+      // console.log(class1);
+
+      const myRoom = friend.map((el, index) => el + '어린이' + index + '번째');
+      // console.log(myRoom);
+
+      const registerFunc = () => {
+        const studentCard = {
+          name: '짱구',
+          age: 5,
+        };
+        const studentCard1 = {
+          name: '짱아',
+          age: 1,
+        };
+        const studentList = [studentCard, studentCard1];
+
+        //list에 담을거다
+        localStorage.setItem('list', JSON.stringify(studentList));
+      };
+      const drawFunc = () => {
+        // 즉 함수를 실행했을때 list에 아무것도 없을 수 있으니까 이게 null이라면 빈배열 이건 배열이 아닌 문자열!!
+
+        const listString =
+          localStorage.getItem('list') !== null
+            ? localStorage.getItem('list')
+            : '[]';
+        console.log(listString);
+        const list = JSON.parse(listString);
+
+        //el : 객체 전체
+        const studentCardHTML = list.map(
+          (el, index) => `
+        <div>
+              <a href = "./02-repeat-map-detail.html?number=${index}">
+                ${el.name}는 ${el.age}입니다.</a>
+        </div>
+        `
+        ); //위에건 짱구가 실행되고 아래는 짱아
+        console.log(studentCardHTML); //이렇게만 하면 배열이라 화면에 보일 수가 없음 아래와 같은 방법으로 진행해야함
+        console.log(studentCardHTML.join('')); //문자열 조인했기에 하나로 합쳐지게 됌
+
+        document.getElementById('showStudent').innerHTML =
+          studentCardHTML.join('');
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="registerFunc()">등록하기</button>
+    <button onclick="drawFunc()">학생증 그리기</button>
+    <div id="showStudent"></div>
+  </body>
+</html>

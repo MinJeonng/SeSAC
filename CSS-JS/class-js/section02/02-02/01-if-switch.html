@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>if문과 switch문 연습</title>
+    <script>
+      //if문 연습
+      if (1 + 1 === 2) {
+        console.log('귀요미입니다.');
+      }
+      //if-else문 연습
+      if (1 + 1 === 25) {
+        console.log('정답입니다.');
+      } else {
+        console.log('노노노노');
+      }
+      //if-else if 연습
+      if (1 + 1 === 25) {
+        console.log('정답입니다.');
+      } else if ('철수' === '영희') {
+        console.log('철수와 영희는 같습니다.');
+      } else {
+        console.log('다 틀림');
+      }
+      //삼항 연산자 연습
+      const science = 50;
+      const result = science >= 90 ? '공부 잘하는구나' : '노력해라';
+      console.log(result);
+
+      //switch 연습
+      let candyFlavor;
+      switch (candyFlavor) {
+        case '딸기맛':
+          console.log('딸기맛 노맛');
+          break;
+        case '초코맛':
+          console.log('좀 최고');
+          break;
+        default:
+          console.log('다 별로야');
+      }
+      console.log(candyFlavor.초코맛);
+    </script>
+  </head>
+  <body></body>
+</html>

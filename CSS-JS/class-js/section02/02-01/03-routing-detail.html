@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>상세페이지</title>
+    <script>
+      // location : 페이지를 거쳐갈때마다 어떤 페이지를 거쳐갔는지가 가능한 객체
+      const queryString = location.search;
+      console.log(queryString); //banana=10&apple=8
+
+      // 이전 주소에서 쿼리스트링으로 넘길때 주소에 있는건 문자열 형태임
+      const sliceQuery = new URLSearchParams(queryString);
+      const banana = sliceQuery.get('banana');
+      const apple = sliceQuery.get('apple');
+
+      alert(`banana는 ${banana}개, 사과는 ${apple}개가 있습니다.`);
+    </script>
+  </head>
+  <body>
+    <div>상세보기 페이지 입니다. 웰컴!</div>
+  </body>
+</html>

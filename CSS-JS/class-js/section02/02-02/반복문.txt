@@ -1,0 +1,8 @@
+el -> element의 약자
+
+const 우리반 = friend.filter((el)=>el !== '영희') ->조건문이 true일때만 변수에 들어가는 것 즉 우리반에 들어가는 것
+
+(el)=>{
+  return el !== "영희"
+}
+와 같음

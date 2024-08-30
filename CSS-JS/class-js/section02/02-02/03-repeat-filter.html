@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>필터 실습</title>
+    <script>
+      const filterFunc = (e) => {
+        const selected = e.target.value;
+        console.log(selected);
+
+        //나중엔 여기에서 localstorage에서 저장된 객체를 가져오게 될 것 일기만들때
+        let peopleList = [{ name: '짱구' }, { name: '짱아' }, { name: '맹구' }];
+
+        //이렇게 switch문으로 하게 된다면 아래처럼 일일히 안해도 되니까 이 방법!
+        switch (selected) {
+          case '짱구': {
+            peopleList.filter((el) => el.name === '짱구');
+            break;
+          }
+          case '짱아': {
+            peopleList.filter((el) => el.name === '짱아');
+            break;
+          }
+          case '맹구': {
+            peopleList.filter((el) => el.name === '맹구');
+            break;
+          }
+        }
+
+        //el을 쓰면 변수를 하나씩 살펴봄
+        //el.name하면 맨 처음 값이 나오고 그 다음엔 또 다음값이 나오고 반복!
+        //el.name === '짱구'와 맞는 값만 나오게 될 것!!!
+        peopleList = peopleList.filter((el) => el.name === '짱구');
+        console.log(peopleList);
+      };
+    </script>
+  </head>
+  <body>
+    <select onchange="filterFunc(event)">
+      <option selected>선택하세요</option>
+      <option value="짱구">짱구</option>
+      <option value="짱아">짱아</option>
+      <option value="맹구">맹구</option>
+    </select>
+  </body>
+</html>
