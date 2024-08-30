@@ -1,0 +1,12 @@
+
+
+새로고침해도 브라우저에 남아있는 방법 
+키, value로 객체와 비슷한 형태임
+
+로컬스토리지 : 껐다켜도 남아있음, 새로고침이든 껐다키든 계속
+localStorage.setItem('사탕', 15) 일케하면 키, value순으로 저장함
+
+const candy = localStorage.getItem('사탕') 하면 candy의 값은 15
+
+세션스토리지 : 새로고침시에는 남아있음, 껏다키면 사라짐
+

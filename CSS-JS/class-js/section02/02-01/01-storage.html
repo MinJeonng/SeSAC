@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>localStorage, sessionStorage 실습</title>
+    <script>
+      //1. 세션스토리지에 저장하기
+      const candy_S = () => {
+        sessionStorage.setItem('bag', 1);
+      };
+      const candy2_S = () => {
+        sessionStorage.setItem('bag', 2);
+      };
+      const candy3_S = () => {
+        sessionStorage.setItem('bag', 10);
+      };
+      const result2 = () => {
+        const bag = sessionStorage.getItem('bag');
+        alert(`사과바구니에 사과가 ${bag}개 들어있어요.`);
+      };
+
+      //2. 로컬스토리지에 저장하기
+      const candy_l = () => {
+        localStorage.setItem('bag', 1);
+      };
+      const candy2_l = () => {
+        localStorage.setItem('bag', 2);
+      };
+      const candy3_l = () => {
+        localStorage.setItem('bag', 10);
+      };
+      const result3 = () => {
+        const bag = localStorage.setItem('bag');
+        alert(`사과바구니에 사과가 ${bag}개 들어있어요.`);
+      };
+    </script>
+  </head>
+  <body>
+    <!-- 함수내용 바꾸면서 해보면 됨 -->
+    <button onclick="candy_S()">사과 1개 담기</button> <br />
+    <button onclick="candy2_S()">사과 2개 담기</button> <br />
+    <button onclick="candy3_S()">사과 10개 담기</button> <br />
+    <button onclick="result2()" id="result">사과 몇개인지 불러오기</button>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .css_box {
+        width: 100px;
+        height: 150px;
+        background-color: green;
+      }
+      .css_box:hover {
+        animation-name: animationFunx;
+        animation-duration: 0.5s;
+        animation-iteration-count: infinite;
+      }
+      @keyframes animationFunx {
+        from {
+          background-color: red;
+          transform: rotateY(20deg);
+        }
+        50% {
+          background-color: orange;
+          transform: rotateY(100deg);
+        }
+        to {
+          background-color: yellow;
+          transform: rotateY(150deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="css_box"></div>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>스켈레톤 실습</title>
+    <style>
+      .box {
+        width: 500px;
+        height: 500px;
+        background-color: lightgray;
+        border-radius: 30px;
+      }
+      /* 번지게 하는건 : filter */
+      .stick {
+        width: 100px;
+        /* 막대기는 상자보다 높이가 커야함 */
+        height: 1000px;
+        background-color: white;
+        filter: blur(70px);
+
+        animation-name: ani;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+      }
+      @keyframes ani {
+        from {
+          transform: translate(-400px, -400px) rotateZ(30deg);
+        }
+        to {
+          transform: translate(700px, 400px) rotateZ(30deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="stick"></div>
+    </div>
+  </body>
+</html>

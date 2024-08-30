@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .copy {
+        width: 300px;
+        height: 30px;
+        color: white;
+        background-color: #666;
+        border-radius: 10px;
+        /* text 가운데로 오게 하는건 Textalign, 세로로도 가운데로 오게하려면 line-height를 배경의 height랑 같게 해주면됌 */
+        text-align: center;
+        line-height: 30px;
+
+        animation-name: ani;
+        animation-duration: 2s;
+      }
+      @keyframes ani {
+        from {
+          opacity: 0%;
+        }
+
+        to {
+          opacity: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="copy">복사</div>
+  </body>
+</html>
