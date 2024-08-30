@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      //1. 밑에서 만든 함수 위에서 실행하기 -> 호이스팅
+      hi();
+      function hi() {
+        console.log('호이스팅');
+      }
+
+      //2. 밑에서 만든 변수 위에서 실행하기 -> 호이스팅
+      console.log(first); //undefined , 상자가 만들어졌다는 뜻이긴함! 그게 아니라면 에러가뜸, 즉, 선언만 된 것
+      var first = '변수'; //선언 : 빈상자를 만드는 것. 할당 : 빈상자에 값을 집어넣는 것
+
+      //할당이 되고나서 실행되는 것
+      console.log(first);
+    </script>
+  </head>
+  <body></body>
+</html>

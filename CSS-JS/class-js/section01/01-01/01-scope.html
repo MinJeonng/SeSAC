@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>scope</title>
+    <script>
+      // 함수는 기능을 만드는것이지 실행이 되는게 아님
+      //따로 실행되어야함
+      function add() {
+        const a = 10;
+        const b = 20;
+        console.log(a + b);
+      }
+      add();
+
+      //매개변수, 인자
+      function add2(a, b) {
+        console.log(a + a + a + b);
+      }
+      add2(1, 10);
+
+      //scope 연습
+      function fruit() {
+        const banana = 10;
+        console.log(banana, '바깥');
+        function inside() {
+          // 이 함수에서 보면 banana가 이 함수자체에선 선언되지 않았다.
+          //이럴 경우에는 스코프 체인으로 인해 상단에 가장 가까운 중괄호에제서(외부함수의) 정의된 값을 찾음
+          console.log(banana, '안');
+        }
+        //이건 바깥 함수보다 안에 있으니까 바깥함수의 밖에서 실행해봤자 안됌
+
+        inside();
+        // 감싸고 있는 가장 가까운 중괄호 안에 있는 값을 읽음
+        console.log(banana);
+      }
+
+      fruit();
+    </script>
+  </head>
+  <body>
+    <!-- scope chain -->
+    <!-- 하나의 스코프에 원하는 변수가 없다하더라도 상위에 있는 스코프에서 원하는 변수를 찾는다.
+    이런걸 scope chain이라고 함 -->
+  </body>
+</html>
