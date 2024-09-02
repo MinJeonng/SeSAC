@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>scroll-anchor</title>
+    <style>
+      #container {
+        width: 300px;
+        height: 500px;
+        overflow: scroll;
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div></div>
+      <!-- href 아래처럼 하면 현재페이지에서 저 아이디(클래스)네임의 영역으로 이동하게 됌 -->
+      <a href="#title1">주제1</a>
+      <a href="#title2">주제2</a>
+
+      <h3 id="title1">주제1</h3>
+      <p>하윙 안녕하심</p>
+      <p>하윙 안녕하심</p>
+      <p>하윙 안녕하심</p>
+      <p>하윙 안녕하심</p>
+      <p>하윙 안녕하심</p>
+      <p>하윙 안녕하심</p>
+      <p>하윙 안녕하심</p>
+      <p>하윙 안녕하심</p>
+
+      <h3 id="title2">주제2</h3>
+      <p>그러하답니다</p>
+      <p>그러하답니다</p>
+      <p>그러하답니다</p>
+      <p>그러하답니다</p>
+      <p>그러하답니다</p>
+      <p>그러하답니다</p>
+      <p>그러하답니다</p>
+      <p>그러하답니다</p>
+    </div>
+  </body>
+</html>
+<!-- 특정영역으로 자동 스크롤  : 앵커 스크롤 -->

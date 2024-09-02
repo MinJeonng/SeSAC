@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>scrollTo, By</title>
+    <script>
+      const scrollFunc = () => {
+        // window.scrollTo({ top: 0 }); //scroll 맨 위로 올려줘
+
+        window.scrollBy({ top: -300, behavior: 'smooth' }); //현재 위치에서 숫자만큼 위로 올라가는걸 의미
+        //behavior: 'smooth' : 부드럽게 스크롤
+      };
+    </script>
+  </head>
+  <body>
+    <img src="토토로.jpeg" alt="토토로" width="100%" />
+    <button onclick="scrollFunc()">HTML 스크롤 올리기</button>
+  </body>
+</html>
+
+<!-- scrollTo({top:50}) -> 스크롤을 위에서 50만큼 떨어진 상태에서 떨어뜨려줘
+
+scrollBy({top:500}) -> 지금있는 스크롤 위치에서 500만큼 이동시켜줘
+
+-->

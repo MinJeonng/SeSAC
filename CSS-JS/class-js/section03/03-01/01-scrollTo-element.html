@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>tag scroll</title>
+    <style>
+      .box {
+        overflow-y: scroll;
+        width: 1000px;
+        height: 500px;
+      }
+    </style>
+    <script>
+      const elementScroll = () => {
+        // 태그를 통째로 가지고 와야함
+        document
+          .getElementById('container')
+          .scrollTo({ top: 0, behavior: 'smooth' });
+      };
+    </script>
+  </head>
+  <body>
+    <div id="container" class="box">
+      <img src="./토토로.jpeg" alt="totoro" width="100%" />
+      <button onclick="elementScroll()">스크롤 올리기</button>
+    </div>
+  </body>
+</html>
