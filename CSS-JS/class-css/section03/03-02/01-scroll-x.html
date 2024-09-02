@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>가로 스크롤</title>
+    <style>
+      .container {
+        display: flex;
+        overflow-x: scroll;
+        border: 1px solid blue;
+        height: 300px;
+        width: 200px;
+        .box {
+          width: 150px;
+          height: 180px;
+          background-color: rgb(56, 141, 141);
+          border: 1px solid black;
+          margin: 10px;
+
+          /* 원본 사이즈 그대로 가져가게 찌그러지지 않게 하기 */
+          /* 0 : 찌그러지지 않고 그대로 
+          1 : 1배율로 , 2 : 2배율로 찌그러짐  */
+          flex-shrink: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+</html>
+
+<!-- overflow -->
+<!-- 얼마나 길어야 스크롤 만들지 기준 필요,
+ div{
+ overflow : scroll
+ height : 500px  -> 500px이 넘으면 스크롤을 만들겠다!
+ } -->

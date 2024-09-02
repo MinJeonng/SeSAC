@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>세로 스크롤</title>
+    <style>
+      .container {
+        /* display: flex;
+        flex-direction: column; */
+
+        overflow-y: scroll;
+
+        /* 말그대로 스크롤이 사라짐 */
+        /* overflow: hidden; */
+        border: 1px solid blue;
+        height: 500px;
+        width: 300px;
+        .box {
+          width: 150px;
+          height: 180px;
+          background-color: rgb(56, 141, 141);
+          border: 1px solid black;
+          margin: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+</html>
+
+<!-- overflow -->
+<!-- 얼마나 길어야 스크롤 만들지 기준 필요,
+ div{
+ overflow : scroll
+ height : 500px  -> 500px이 넘으면 스크롤을 만들겠다!
+ } -->

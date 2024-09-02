@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>sticky</title>
+    <style>
+      .container {
+        overflow-y: scroll;
+
+        /* 말그대로 스크롤이 사라짐 */
+        /* overflow: hidden; */
+
+        border: 1px solid blue;
+        height: 500px;
+        width: 300px;
+        .box {
+          width: 150px;
+          height: 180px;
+          background-color: rgb(56, 141, 141);
+          border: 1px solid black;
+          margin: 10px;
+        }
+      }
+
+      /* header 영역 */
+      .header {
+        /* top을 지정해서 위에서 얼만큼 떨어져서 고정하겠다!!! 할 수 있음 
+        scroll 내 고정위치 */
+        position: sticky;
+        top: 0px;
+        width: 100%;
+        height: 50px;
+        background-color: rgb(81, 243, 229);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">내 다이어리</div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+</html>
+
+<!-- scroll주려면 height를 줘야하는데, header는 스크롤에 영향받지 않으려면
+header 부분에 position: sticky; 해주면 된다. 
+
+화면 내 고정위치 position : fixed 와 같은거 아닌가? + 상대위치도 마찬가지
+이거는 스크롤박스가 통쨰로 움직이면 따라 움직이지 않음
+-->
