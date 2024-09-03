@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스크롤 바닥 감지</title>
+    <script>
+      window.addEventListener('scroll', () => {
+        // height : 스크롤 내려간 길이
+        const height = window.scrollY;
+        // scrollbar : 클라이언트 height, 즉 스크롤바 길이
+        const scrollbar = document.documentElement.clientHeight;
+
+        //total : 스크롤전체길이
+        const total = document.documentElement.scrollHeight;
+
+        if (height + scrollbar === total) {
+          alert('스크롤이 바닥에 닿았습니다.');
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <img src="./myDog.png" width="100%" />
+  </body>
+</html>

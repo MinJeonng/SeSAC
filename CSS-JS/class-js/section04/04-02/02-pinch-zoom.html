@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,
+      user-scalable=no"
+    />
+    <title>finch zoom 실습</title>
+    <script>
+      const 사진원본보기기능 = () => {
+        document.body.style = 'background-color : black';
+        document.getElementById('image').style = 'width : 100%';
+        document.getElementsByName('viewport')[0].content = `
+        width = device-width,
+        initial-scale = 1.0
+        minimum-scale = 1.0,
+        maximum-scale = 3.0,
+        user-scalable=yes,
+        `;
+      };
+    </script>
+  </head>
+  <body>
+    <!-- img를 클릭했을때 그때는 확대 축소가 가능하게.
+     그 이전에는 브라우저에서는 안되게  -->
+    <img
+      id="image"
+      src="../04-01/myDog.png"
+      width="200px"
+      onclick="사진원본보기기능()"
+    />
+  </body>
+</html>

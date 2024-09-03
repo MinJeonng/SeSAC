@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>device 높이 감지 실습</title>
+    <title>device 높이 자동 감지 실습</title>
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
-      .footer {
+      footer {
         height: 100px;
         background-color: darkseagreen;
       }
@@ -22,13 +22,20 @@
     </style>
     <script>
       // floating btn이 footer를 침범하지 않게!
+      //이걸 모든 디바이스의 높이를 자동계산해서 되게
       window.addEventListener('scroll', () => {
-        const now_height = window.scrollY;
-        console.log(now_height);
+        // height 변수 : 화면 위에서부터 footer 위까지의 길이
+        const height = document
+          .querySelector('footer')
+          .getBoundingClientRect().top;
+        console.log(height);
 
-        // 이로 인해서 footer까지 내려가면 플로팅 버튼은 이미지에 있음
-        // 하지만 이 방법은 디바이스 크기에 따라 다를 수 있으므로 정말 자주 쓰이지 않는 방법!
-        if (now_height >= 0) {
+        //showHeight : 보이는 화면의 길이
+        //window.outerHeight : 메뉴, 주소창 등을 포함
+        const showHeight = window.innerHeight;
+        console.log(`보이는 화면 길이 : ${showHeight}`);
+
+        if (showHeight >= height) {
           document.getElementById('btn').style = `
           position : relative;
           bottom : 40px;
@@ -48,6 +55,6 @@
     <img src="./myDog.png" width="100%" />
     <!-- 플로팅 버튼 위로 올리는.. -->
     <button id="btn">^</button>
-    <div class="footer">footer</div>
+    <footer>footer</footer>
   </body>
 </html>
