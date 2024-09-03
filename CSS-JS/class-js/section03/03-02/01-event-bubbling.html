@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event-bubbling 기본기능 막기 실습</title>
+    <style>
+      .css_img {
+        width: 100px;
+        height: 100px;
+        background-color: salmon;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="./01-event-bubbling-detail.html">
+      <div class="css_img">
+        <button onclick="deleteFunc(event,2)">1번 삭제</button>
+      </div>
+    </a>
+
+    <!-- 이렇게 하면 삭제만 하고싶은데 div까지 같이눌려서 a태그가 실행됌 -->
+    <a href="./01-event-bubbling-detail.html">
+      <div class="css_img">
+        <button onclick="deleteFunc(event, 2)">2번 삭제</button>
+      </div>
+    </a>
+    <script>
+      // 어떤걸삭제할지받자 부분에는 변수
+      const deleteFunc = (event, 어떤걸삭제할지받자) => {
+        event.preventDefault(); //클릭하고 나서 다른 기능을 막아줘서 나만 실행되고 딱 끝나게 됌, 이게 없으면 바닥에 있는 <a> 기본기능이 실행되어버림
+        alert(`${어떤거삭제할지받자}번 사진이 삭제 되었습니다.`);
+      };
+    </script>
+  </body>
+</html>
