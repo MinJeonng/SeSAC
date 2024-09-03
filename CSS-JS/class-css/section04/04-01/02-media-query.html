@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>미디어 쿼리</title>
+    <style>
+      .container {
+        display: flex;
+      }
+      .left_group {
+        background-color: skyblue;
+        padding: 50px;
+      }
+      .box {
+        width: 150px;
+        height: 150px;
+      }
+      .right_group {
+        width: 300px;
+        background-color: antiquewhite;
+        flex-shrink: 0;
+      }
+      @media (max-width: 767px) {
+        .left_group {
+          padding: 1px;
+        }
+        .container {
+          flex-direction: column;
+        }
+        /* .box{
+          background-colpr " [red]"
+        } */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left_group">
+        <img class="box" src="myDog.png" />
+        <img class="box" src="myDog.png" />
+        <img class="box" src="myDog.png" />
+        <img class="box" src="myDog.png" />
+      </div>
+      <div class="right_group">
+        <h3>강아지 옷 등록하기</h3>
+        옷 이름 : <input type="text" />
+        <button>등록하기</button>
+      </div>
+    </div>
+  </body>
+</html>

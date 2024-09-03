@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>그리드와 플렉스를 같이 쓴다면?</title>
+    <style>
+      /* 모바일에서는 그림이 꼭 두줄로 보여야 한다면 브레이크 포인트에서는
+      플렉스였던걸 그리드로 전환하면 된다. 
+      
+      */
+      .container {
+        max-width: 1100px;
+        background-color: skyblue;
+        padding: 50px;
+        flex-wrap: wrap;
+        .box {
+          width: 250px;
+          height: 250px;
+        }
+      }
+      @media (max-width: 650px) {
+        .container {
+          display: grid;
+
+          /*grid-template-columns : 하고 뒤에 몇개를 하느냐에 따라 fr씩마다 한줄임  */
+          grid-template-columns: 1fr 1fr;
+        }
+        /* 그리고 줄어들때 그림이 넘어가거나 안보이는 현상이 있는데 다 보이게 해주고 같이 줄어들게 해줘라.
+        -> 이럴땐 width를 지정해두는게 아니라 %로 해야 해결됌
+        */
+        .box {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img class="box" src="./myDog.png" alt="" />
+      <img class="box" src="./myDog.png" alt="" />
+      <img class="box" src="./myDog.png" alt="" />
+      <img class="box" src="./myDog.png" alt="" />
+      <img class="box" src="./myDog.png" alt="" />
+      <img class="box" src="./myDog.png" alt="" />
+      <img class="box" src="./myDog.png" alt="" />
+      <img class="box" src="./myDog.png" alt="" />
+      <img class="box" src="./myDog.png" alt="" />
+      <img class="box" src="./myDog.png" alt="" />
+    </div>
+  </body>
+</html>

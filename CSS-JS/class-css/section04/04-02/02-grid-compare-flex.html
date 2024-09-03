@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>grid와 flex 비교</title>
+    <style>
+      .pay_group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        background-color: lightblue;
+        justify-content: center;
+        margin-bottom: 5rem;
+        .btn1 {
+          width: 100px;
+          background-color: sandybrown;
+        }
+      }
+
+      .pay_group2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        place-items: center;
+        row-gap: 10px;
+        width: 400px;
+        background-color: antiquewhite;
+        .btn2 {
+          width: 100px;
+          background-color: rgb(173, 173, 12);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pay_group">
+      <div class="btn1">신용카드</div>
+      <div class="btn1">계좌이체</div>
+      <div class="btn1">핸드폰결제</div>
+      <div class="btn1">무통장입금</div>
+      <div class="btn1">포인트결제</div>
+    </div>
+
+    <div class="pay_group2">
+      <div class="btn2">신용카드</div>
+      <div class="btn2">계좌이체</div>
+      <div class="btn2">핸드폰결제</div>
+      <div class="btn2">무통장입금</div>
+      <div class="btn2">포인트결제</div>
+    </div>
+  </body>
+</html>

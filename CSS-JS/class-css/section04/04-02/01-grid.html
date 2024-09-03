@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: grid;
+        grid-template-columns: 300px 300px 300px;
+        /* grid-template-columns: 1fr 1fr 1fr; 1:1:1 로 나눠줘! 즉, 비율로 나눔 */
+
+        grid-template-rows: 400px 400px 400px;
+        background-color: skyblue;
+
+        column-gap: 50px; /* 그리드 안에 컨텐츠 간의 gap */
+        row-gap: 50px;
+
+        place-items: center center; /*상자 아이템 각각 정렬 => 상하 좌우 */
+        place-content: end center; /* 상자그룹 전체 껍데기 정렬 => 순서 : 상하 좌우 */
+
+        width: 1600px;
+        height: 1600px;
+      }
+      .box {
+        width: 250px;
+        height: 300px;
+        border: 5px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img class="box" src="myDog.png" />
+      <img class="box" src="myDog.png" />
+      <img class="box" src="myDog.png" />
+      <img class="box" src="myDog.png" />
+      <img class="box" src="myDog.png" />
+      <img class="box" src="myDog.png" />
+      <img class="box" src="myDog.png" />
+      <img class="box" src="myDog.png" />
+    </div>
+  </body>
+</html>
