@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>form 실습</title>
+    <script>
+      const register = () => {
+        alert('등록이 완료되었습니다.');
+      };
+    </script>
+  </head>
+  <body>
+    <!-- form에 내장된 기능으로, 무엇이 active 되었는지 비교하지 않아도 되고,
+    event써서 enter 하는 것도 안해도 된다. 
+    -->
+    <!-- form 안에 action 즉, 내가 이전에 했던 것처럼 서버에 이 폼을 어디로보내겟다 그런 뜻 , #은 아무데도 보내지 않는다.-->
+    <form action="#" onsubmit="register()">
+      제목 : <input type="text" /> <br />
+      내용 : <input type="text" /> <br />
+
+      <!-- 버튼의 기본값이 submit이라 onclick을 하지 않아도 submit이 실행되기에 
+      submit으로 감싸면 onclick을 쓰지 않는다. 예외 있음 밑에
+      -->
+      <button>등록</button>
+      <button type="reset">지우기</button>
+    </form>
+
+    <!-- 만약 submit으로 묶어놓고 제출이 아닌 다른 기능을 주고 싶으면 
+    type을 지정해주면 된다.
+    -->
+    <button type="button"></button>
+    <!-- button 역할-->
+    <button type="reset"></button>
+    <!-- form안에 인풋창 다 비우기-->
+  </body>
+</html>

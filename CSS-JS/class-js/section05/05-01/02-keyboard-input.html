@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>키보드와 입력창 실습</title>
+    <script>
+      // 등록하는 함수를 나눈 이유는 키보드로 엔터를 쳐서 들어갈 수도 있고, 마우스로 버튼
+      //눌러서 등록할 수 있으니까, 근데 그걸 두번만들바에 함수 하나 만들어서 적용한 것
+      const register = () => {
+        alert('등록이 완료되었습니다.');
+      };
+
+      window.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          if (
+            // activeElement : focus가 가있는가, focus가 가있어야 등록되게
+            // 근데 여기선 값이 들어왔는가는 일단 확인안함
+            document.activeElement.id === 'title' ||
+            document.activeElement.id === 'content'
+          ) {
+            register();
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    제목 : <input id="title" type="text" /><br />
+    내용 : <input id="content" type="text" /><br />
+    <button onclick="register()">등록하기</button>
+  </body>
+</html>

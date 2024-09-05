@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>키보드 감지 실습</title>
+    <style>
+      .image1 {
+        position: absolute;
+        top: 200px;
+        left: 200px;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <script>
+      // 1배속
+      let booster = 1.0;
+
+      window.addEventListener('keydown', (e) => {
+        const dog = document.getElementById('icon');
+        // dog 변수에 입력된 css 가져오는 함수 -> getComputedStyle()
+        const dogStyle = getComputedStyle(dog);
+
+        // 이때는 px을 지워야 하기때문에 그렇게 하기위해선
+        // Number(dogStyle.top.replace('px',''))
+
+        // 지금 강아지가 있는 현 좌표
+        const 강아지Y좌표 = Number(dogStyle.top.replace('px', ''));
+        const 강아지X좌표 = Number(dogStyle.left.replace('px', ''));
+
+        // if (e.key === 'enter') {
+        //   alert('엔터 하잉');
+        // }
+
+        switch (e.key) {
+          // ArrowUp이든 case옆에 내용은 문서에 공식적으로 있는 내용임 그래야 인식함! 내가 만든 말이 아님
+          case 'ArrowUp': {
+            document.getElementById('icon').style = `top : ${
+              (강아지Y좌표 - 20) / booster
+            }px ; left : ${강아지X좌표}px`;
+            break;
+          }
+          case 'ArrowDown': {
+            document.getElementById('icon').style = `top: ${
+              (강아지Y좌표 + 20) * booster
+            }px; left: ${강아지X좌표}px;`;
+            break;
+          }
+          case 'ArrowRight': {
+            document.getElementById(
+              'icon'
+            ).style = `top: ${강아지Y좌표}px; left: ${
+              (강아지X좌표 + 20) * booster
+            }px`;
+            break;
+          }
+          case 'ArrowLeft': {
+            document.getElementById(
+              'icon'
+            ).style = `top: ${강아지Y좌표}px; left: ${
+              (강아지X좌표 - 20) / booster
+            }px`;
+            break;
+          }
+          case ' ': {
+            // 스페이스 바 누르면 빨리 가는거
+            // 스페이스 바를 몇번 누르고 그 몇번에 곱하기나 나누기해서 위에 값들에 대입되는거
+            booster = booster + 0.1;
+            break;
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <img src="./토토로.jpeg" class="image1" id="icon" />
+  </body>
+</html>
