@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>겹치기 리팩토링 실습</title>
+    <style>
+      .cardGroup {
+        margin: 100px;
+
+        /* 카드 그룹이 쌓임맥락이 생성되었기에 !! 그래서 이렇게 하면
+        photo의 (0,0)에서 left 190px에서 deletebtn이 생기는 것
+        */
+        position: relative;
+      }
+      .photo {
+        width: 200px;
+        height: 200px;
+        background-color: skyblue;
+      }
+      .deleteBtn {
+        position: absolute;
+        top: 0;
+        left: 190px;
+
+        /* 겹치기 할때 absolute(아래 애들 재비치하기) vs relative(아래 애들 그대로 두고 나만빠져나오기) */
+        /* position: relative;
+        top : -200px;
+        left : 190px */
+      }
+      .info {
+        width: 200px;
+        height: 100px;
+        background-color: violet;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cardGroup">
+      <div class="photo"></div>
+      <button class="deleteBtn">x</button>
+      <div class="info">이 카드는 멍멍이 카드입니다.</div>
+    </div>
+  </body>
+</html>

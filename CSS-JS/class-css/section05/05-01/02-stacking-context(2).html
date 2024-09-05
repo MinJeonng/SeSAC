@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>z-index 실습</title>
+    <style>
+      .floor {
+        margin: 100px;
+        padding: 100px;
+        width: 1000px;
+        height: 1000px;
+        background-color: rgb(218, 234, 239);
+
+        /* 이렇게 되면 group가 부모가 되는 것이 아님
+        즉, 쌓임 맥락 기준으로 부모(컨테이닝블록)는 상위태그가 아님!!!!!
+        상위태그들 중 쌓임맥락에 포함된 태그가 부모가 되는 것 
+        
+        여기에서도 원래 종이들의 부모는 group 클래스라고 생각할 수 있지만 그렇게 되면
+        브라우저의 맨 위에 붙게 됌 
+        그래서 floor에 absolute를 해줘야 안에서 붙음 (실제 해보면 앎)
+        */
+        position: absolute;
+      }
+      .group {
+        width: 500px;
+        height: 500px;
+        background-color: skyblue;
+      }
+
+      .CSS_빨간종이 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+
+        /* 쌓임맥락을 형성한 애들끼리 부모를 재설정.. */
+        z-index: 99;
+        /* absolute는 부모에 붙는 것!!! */
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+      .CSS_노란종이 {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+
+        position: absolute;
+        top: 25px;
+        left: 25px;
+
+        z-index: 1;
+      }
+      .CSS_파란종이 {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+
+        position: absolute;
+        top: 50px;
+        left: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- floor : 종이 놓는 바닥 -->
+    <div class="floor">
+      <div class="group">
+        <div class="CSS_빨간종이"></div>
+        <div class="CSS_노란종이"></div>
+        <div class="CSS_파란종이"></div>
+      </div>
+    </div>
+  </body>
+</html>
