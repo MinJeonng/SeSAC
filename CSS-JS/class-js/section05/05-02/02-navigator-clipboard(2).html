@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const nearSearch = () => {
+        // 현재 포지션이 어디냐
+        navigator.geolocation.getCurrentPosition((받아온위치) => {
+          const 나의위도 = 받아온위치.coords.latitude;
+          const 나의경도 = 받아온위치.coords.longitude;
+          alert(`당신의 위치는 ${나의위도},${나의경도} 이군요`);
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="nearSearch()">내 근처 맛집보기</button>
+  </body>
+</html>

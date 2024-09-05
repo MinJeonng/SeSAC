@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>timer 실습</title>
+    <style>
+      html {
+        cursor: none;
+      }
+      .가짜마우스 {
+        width: 50px;
+
+        position: absolute;
+        z-index: 1;
+      }
+
+      .totoro1 {
+        width: 100px;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+      }
+      .totoro2 {
+        width: 100px;
+        position: absolute;
+        top: 300px;
+        left: 300px;
+      }
+    </style>
+    <script>
+      // mouse가 움직일때 실행시켜줘 : mousemove
+      window.addEventListener('mousemove', (e) => {
+        const fakeMouse = document.getElementById('fake');
+        fakeMouse.style.top = `${e.clientY + 5}px`;
+        fakeMouse.style.left = `${e.clientX + 5}px`;
+        // clientY : 위에서 얼마만큼 떨어졌는가
+      });
+
+      const catchFunc = (icon) => {
+        document.getElementById(icon).style = 'display : none';
+
+        window.setTimeout(() => {
+          document.getElementById(icon).style = 'display : block';
+        }, 2000);
+      };
+    </script>
+  </head>
+  <body>
+    <img id="fake" class="가짜마우스" src="./00-hammer.png" />
+    <img
+      id="totoro_icon1"
+      class="totoro1"
+      src="../05-01/토토로.jpeg"
+      onclick="catchFunc('totoro_icon1')"
+    />
+    <img
+      id="totoro_icon2"
+      class="totoro2"
+      src="../05-01/토토로.jpeg"
+      onclick="catchFunc('totoro_icon2')"
+    />
+  </body>
+</html>
