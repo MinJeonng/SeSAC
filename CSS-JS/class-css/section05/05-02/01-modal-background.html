@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>modal</title>
+    <style>
+      .background {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: lightblue;
+        opacity: 50%;
+      }
+    </style>
+    <script>
+      const openModal = () => {
+        document.getElementById('background').style.display = 'block';
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="openModal()">모달열기</button>
+
+    <!-- 모달 -->
+    <div id="background" class="background"></div>
+  </body>
+</html>
