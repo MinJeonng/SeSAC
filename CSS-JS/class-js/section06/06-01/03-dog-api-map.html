@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문장API 실습</title>
+    <script>
+      const catchSentence = () => {
+        // result : fetch한 주소에서 받아온 결과
+        fetch('https://dog.ceo/api/breeds/image/random/3').then((result) => {
+          result.json().then((객체로변경한결과) => {
+            // result를 성공적으로 가져오면 아래와 같이 실행해줘
+            console.log('결과 : ', 객체로변경한결과);
+
+            // alert(객체로변경한결과.message);
+            const boxImg = 객체로변경한결과.message;
+            console.log(boxImg);
+
+            document.getElementById('showImg').innerHTML = boxImg
+              .map(
+                (el) => `
+            <img src = "${el}" width : "300px" />
+            `
+              )
+              .join('');
+          });
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="catchSentence()">사진 불러오기</button>
+    <div id="showImg"></div>
+  </body>
+</html>
+
+<!-- 값이 아니라 주소가 담기는 것 -->

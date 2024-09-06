@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문장API 실습</title>
+    <script>
+      const catchSentence = () => {
+        fetch('https://koreanjson.com/todos').then((result) => {
+          result.json().then((객체로변경한결과) => {
+            // result를 성공적으로 가져오면 아래와 같이 실행해줘
+            console.log('결과 : ', 객체로변경한결과);
+
+            alert(객체로변경한결과[2].title);
+
+            // 이런식으로 해서 넣을 수 있음 변수에
+            const box = 객체로변경한결과[3].title;
+          });
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="catchSentence()">문장 불러오기</button>
+  </body>
+</html>

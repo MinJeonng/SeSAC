@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>페이지전환 효과 실습</title>
+    <style>
+      .box {
+        background-color: sandybrown;
+        width: 1000px;
+        height: 200px;
+        margin: 10px;
+      }
+      @view-transition {
+        navigation: auto;
+      }
+
+      /* detail 페이지에서 이전페이지를 누르면 나오는 애니메이션은 여기에다가 해야함 */
+      @keyframes prev {
+        /* detail 페이지를 가지고 오는 거니까 */
+        from {
+          transform: translateX(0%);
+        }
+        to {
+          transform: translateX(100%);
+        }
+      }
+      /* 이전페이지 있는걸 가지고 와서 그게 사라지면서 목록페이지가 생기는거니까
+      old가 되는 것
+      */
+      ::view-transition-old(root) {
+        animation-name: prev;
+        animation-duration: 0.4s;
+      }
+    </style>
+  </head>
+  <!-- 뷰트랜지션 : 나가기 버튼도 브라우저상의 이전페이지로 지가 알아서 알기에
+   굳이 나가기 , 이전버튼 필요 없음 -->
+  <body>
+    <a href="./02-view-transition-detail.html">페이지 이동</a>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </body>
+</html>

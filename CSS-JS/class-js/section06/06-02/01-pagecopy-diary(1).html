@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>페이지 복사 실습</title>
+    <style>
+      .banner {
+        height: 100px;
+        background-color: slateblue;
+      }
+      .navigation {
+        height: 50px;
+        background-color: paleturquoise;
+      }
+    </style>
+    <script>
+      const moveMenu = (kind) => {
+        switch (kind) {
+          case '일기클릭': {
+            location.href = './01-pagecopy-diary(1).html';
+            break;
+          }
+          case '강아지클릭': {
+            location.href = './01-pagecopy-dog.html';
+            break;
+          }
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div class="banner">배너이미지입니다.</div>
+    <div class="navigation">
+      <button onclick="moveMenu('일기클릭')">일기</button>
+      <button onclick="moveMenu('강아지클릭')">강아지</button>
+    </div>
+    <div>
+      일기목록 화면입니다
+      <div>일기3</div>
+      <div>일기2</div>
+      <div>...</div>
+    </div>
+  </body>
+</html>

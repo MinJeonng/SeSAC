@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>페이지 전환 효과 실습</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+      }
+      @view-transition {
+        navigation: auto;
+      }
+      @keyframes next {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0%);
+          opacity: 1;
+        }
+      }
+
+      @keyframes prev {
+        from {
+          transform: translateX(0%);
+        }
+        to {
+          transform: translateX(-100%);
+        }
+      }
+      /* 목록페이지에서 detail로 넘어올때 보여지는 애니메이션이니까
+      old가 목록페이지가 되는 것 
+      페이지에서 이동한 다음에 해당 애니메이션을 적용한다.
+      */
+      ::view-transition-old(root) {
+        animation-name: prev;
+        animation-duration: 1s;
+      }
+      /* 다음 페이지라는게 현재 페이지 의미, 즉 여기선 detail */
+      ::view-transition-new(root) {
+        animation-name: next;
+        animation-duration: 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <p>
+      상세페이지 라고 합니다. 길게 하라고 해서 지금 열심히 하고 있습니다요. 오늘
+      하루 금요일인데 빨리 저녁되어라ㅏ...~~~~~
+    </p>
+    <p>
+      상세페이지 라고 합니다. 길게 하라고 해서 지금 열심히 하고 있습니다요. 오늘
+      하루 금요일인데 빨리 저녁되어라ㅏ...~~~~~
+    </p>
+    <p>
+      상세페이지 라고 합니다. 길게 하라고 해서 지금 열심히 하고 있습니다요. 오늘
+      하루 금요일인데 빨리 저녁되어라ㅏ...~~~~~
+    </p>
+    <p>
+      상세페이지 라고 합니다. 길게 하라고 해서 지금 열심히 하고 있습니다요. 오늘
+      하루 금요일인데 빨리 저녁되어라ㅏ...~~~~~
+    </p>
+    <div class="box"></div>
+    <p>
+      상세페이지 라고 합니다. 길게 하라고 해서 지금 열심히 하고 있습니다요. 오늘
+      하루 금요일인데 빨리 저녁되어라ㅏ...~~~~~
+    </p>
+    <p>
+      상세페이지 라고 합니다. 길게 하라고 해서 지금 열심히 하고 있습니다요. 오늘
+      하루 금요일인데 빨리 저녁되어라ㅏ...~~~~~
+    </p>
+    <p>
+      상세페이지 라고 합니다. 길게 하라고 해서 지금 열심히 하고 있습니다요. 오늘
+      하루 금요일인데 빨리 저녁되어라ㅏ...~~~~~
+    </p>
+    <p>
+      상세페이지 라고 합니다. 길게 하라고 해서 지금 열심히 하고 있습니다요. 오늘
+      하루 금요일인데 빨리 저녁되어라ㅏ...~~~~~
+    </p>
+  </body>
+</html>

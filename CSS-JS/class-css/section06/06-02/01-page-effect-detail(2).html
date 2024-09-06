@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>페이지 전환 효과 실습</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+      }
+      .page {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        animation-name: next;
+        animation-duration: 0.4s;
+      }
+      @keyframes next {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0%);
+          opacity: 1;
+        }
+      }
+
+      @keyframes prev {
+        from {
+          transform: translateX(0%);
+        }
+        to {
+          transform: translateX(100%);
+        }
+      }
+    </style>
+    <script>
+      const backBtn = () => {
+        document.getElementById('page').style = 'animation-name : prev';
+
+        window.addEventListener('animationend', () => {
+          window.history.back();
+          // location.href = './01-page-effect(1).html';
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div id="page" class="page">
+      <button onclick="backBtn()">나가기</button>
+      <div class="box"></div>
+      <p>
+        상세페이지 라고 합니다. 길게 하라고 해서 지금 열심히 하고 있습니다요.
+        오늘 하루 금요일인데 빨리 저녁되어라ㅏ...~~~~~
+      </p>
+      <p>
+        상세페이지 라고 합니다. 길게 하라고 해서 지금 열심히 하고 있습니다요.
+        오늘 하루 금요일인데 빨리 저녁되어라ㅏ...~~~~~
+      </p>
+      <p>
+        상세페이지 라고 합니다. 길게 하라고 해서 지금 열심히 하고 있습니다요.
+        오늘 하루 금요일인데 빨리 저녁되어라ㅏ...~~~~~
+      </p>
+      <p>
+        상세페이지 라고 합니다. 길게 하라고 해서 지금 열심히 하고 있습니다요.
+        오늘 하루 금요일인데 빨리 저녁되어라ㅏ...~~~~~
+      </p>
+      <div class="box"></div>
+      <p>
+        상세페이지 라고 합니다. 길게 하라고 해서 지금 열심히 하고 있습니다요.
+        오늘 하루 금요일인데 빨리 저녁되어라ㅏ...~~~~~
+      </p>
+      <p>
+        상세페이지 라고 합니다. 길게 하라고 해서 지금 열심히 하고 있습니다요.
+        오늘 하루 금요일인데 빨리 저녁되어라ㅏ...~~~~~
+      </p>
+      <p>
+        상세페이지 라고 합니다. 길게 하라고 해서 지금 열심히 하고 있습니다요.
+        오늘 하루 금요일인데 빨리 저녁되어라ㅏ...~~~~~
+      </p>
+      <p>
+        상세페이지 라고 합니다. 길게 하라고 해서 지금 열심히 하고 있습니다요.
+        오늘 하루 금요일인데 빨리 저녁되어라ㅏ...~~~~~
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>싱글페이지</title>
+    <style>
+      .banner {
+        height: 100px;
+        background-color: slateblue;
+      }
+      .navigation {
+        height: 50px;
+        background-color: paleturquoise;
+      }
+
+      .dogContainer {
+        display: none;
+      }
+      .showContent {
+        display: block;
+      }
+    </style>
+    <script>
+      const moveMenu = (kind) => {
+        switch (kind) {
+          case '일기클릭': {
+            document.getElementById('showContainer').style = 'display : block';
+            document.getElementById('dogContainer').style = 'display : none';
+            break;
+          }
+          case '강아지클릭': {
+            document.getElementById('showContainer').style = 'display : none';
+            document.getElementById('dogContainer').style = 'display : block';
+            break;
+          }
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div class="banner">배너이미지입니다.</div>
+    <div class="navigation">
+      <button onclick="moveMenu('일기클릭')">일기</button>
+      <button onclick="moveMenu('강아지클릭')">강아지</button>
+    </div>
+    <div id="showContent">
+      일기목록 화면입니다
+      <div>일기3</div>
+      <div>일기2</div>
+      <div>...</div>
+    </div>
+
+    <div id="dogContainer">
+      강아지 목록
+      <div>강아지목록입니다.</div>
+    </div>
+  </body>
+</html>
