@@ -67,6 +67,7 @@
           'title'
         ).style.cssText = `--inputValue : "${e.target.id}" `;
         document.getElementById('title').click(); //다시 title창을 눌렀을때 다시 닫히게끔, 값을 선택한 후에
+        // 왜 코드가 자동선택되어서 값 선택하면 없어지냐면, 내가 선택한 태그가 checkbox니까 이 함수를 실행하고 click을 하면 선택된게 해제되니까!!!! 그래서 밑에 ul이 자동으로 사라지게끔 되는 것임.
       };
     </script>
   </head>

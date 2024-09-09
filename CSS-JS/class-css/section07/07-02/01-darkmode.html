@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>싹 다 구현해보는 다크모드</title>
+    <style>
+      .light {
+        color: black;
+        background-color: white;
+      }
+      .dark {
+        color: white;
+        background-color: black;
+      }
+    </style>
+    <script>
+      const onOff = (e) => {
+        e.target.checked === true
+          ? (document.body.className = 'dark')
+          : (document.body.className = 'light');
+      };
+    </script>
+  </head>
+  <body class="light">
+    <input type="checkbox" onclick="onOff(event)" />불끄고 잠자기
+
+    <br />
+    이메일 : <input text="text" /> <br />
+    비밀번호 : <input type="password" /> <br />
+    <button>회원가입</button>
+  </body>
+</html>

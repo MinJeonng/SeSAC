@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>싹 다 구현해보는 다크모드</title>
+    <style>
+      /* 화이트 모드일떄 아래의 :root의 css적용 */
+      :root {
+        /* 전역변수를 여기서 만들 수 있음 */
+        --baseColor: black;
+        --baseBackColor: white;
+        --baseCheck: red;
+        --baseInputBack: lightgray;
+        --inputPlaceholder: gray;
+        --btnColor: black;
+        --btnBackColor: lightgray;
+      }
+
+      /* 불꺼진방의 변수를 바꿔줄 것 */
+      /* 속성을 따로 만들수도 있음 */
+      [isOnOff='off'] {
+        --baseColor: white;
+        --baseBackColor: black;
+        --baseCheck: white;
+        --baseInputBack: gray;
+        --inputPlaceholder: purple;
+        --btnColor: blue;
+        --btnBackColor: aqua;
+      }
+
+      /* 속성선택자 */
+      input[type='text'] {
+        /* input의 type이 text인 모든 것의 css 적용 */
+      }
+
+      body {
+        /* 다크모드와 화이트모드 혼합 */
+        color: var(--baseColor);
+        background-color: var(--baseBackColor);
+        accent-color: var(--baseCheck);
+      }
+      input {
+        background-color: var(--baseInputBack);
+      }
+      input::placeholder {
+        color: var(--inputPlaceholder);
+      }
+      button {
+        background-color: var(--btnBackColor);
+        color: var(--btnColor);
+      }
+    </style>
+    <script>
+      // setAttribute는 속성을 가지고 오는 것('속성이름','속성값')
+      const onOff = (e) => {
+        e.target.checked === true
+          ? document.documentElement.setAttribute('isOnOff', 'off')
+          : document.documentElement.setAttribute('isOnOff', 'on');
+      };
+    </script>
+  </head>
+  <body class="light">
+    <input type="checkbox" onclick="onOff(event)" />불끄고 잠자기
+
+    <br />
+    <div class="card">
+      이메일 : <input text="text" placeholder="이메일을 입력하세요" /> <br />
+      비밀번호 : <input type="password" placeholder="비밀번호를 입력하세요" />
+      <br />
+      <label for="men"><input type="radio" name="gender" id="men" />남자</label>
+      <br />
+      <label for="women"
+        ><input type="radio" name="gender" id="women" />여자</label
+      >
+      <br />
+      <button>회원가입</button>
+    </div>
+  </body>
+</html>
