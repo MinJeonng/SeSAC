@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>엑센트컬러 실습</title>
+    <style>
+      .checkBox {
+        accent-color: green;
+      }
+      .radioBtn {
+        accent-color: pink;
+      }
+      .rangeBar {
+        /* 볼륨조절 바 */
+        accent-color: yellow;
+      }
+      .progressBar {
+        /* 크기 진행상황바 */
+        accent-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="checkbox" class="checkBox" />
+    <input type="radio" class="radioBtn" />
+    <!-- 현재값은 value로 나타냄 -->
+    <input type="range" class="rangeBar" max="100" value="70" />
+    <!-- max, value를 주면 진행상황바가 움직이진 않고 딱 value만큼 색이 채워져 있음 -->
+    <progress class="progressBar" max="100" value="70"></progress>
+  </body>
+</html>

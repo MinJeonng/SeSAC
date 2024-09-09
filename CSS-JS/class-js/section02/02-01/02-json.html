@@ -10,7 +10,8 @@
           watermelon: 10,
         };
         // bag이라는거에 fruit객체를 넣겠다
-        //localStorage.setItem('bag', fruit);
+        // localStorage.setItem('bag', fruit);
+
         //bag	[object Object] 이렇게 들어가게 됌. 즉 잘못 들어가고 있음
 
         //json으로 문자열로 해서 넣으면 해결됌
@@ -22,7 +23,7 @@
         const result = JSON.parse(list); //여기서 객체로 바뀌게됌
         alert(result.apple); //alert는 객체를 몰라서 그냥 객체를 넣으면 똑같이 [object Object] 일케 뜨기때문에 객체.key하면되고
         //그냥 객체만 보고싶으면 콘솔창에!
-        console.log(result);
+        console.log(result.banana);
       };
     </script>
   </head>

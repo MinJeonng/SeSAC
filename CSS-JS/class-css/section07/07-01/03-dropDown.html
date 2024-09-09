@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>드롭다운 실습</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .title {
+        appearance: none;
+        width: 150px;
+        height: 40px;
+        border: 2px solid purple;
+        border-radius: 10px;
+        cursor: pointer;
+        padding: 10px;
+        margin-bottom: 10px;
+
+        /* text를 변수로 만들어놓고 js에서 바꿀 수 있게 할 수 있음 */
+        --inputValue: '선택하세요';
+      }
+      /* .title::before {
+        content: '33';
+      } */
+      .title::after {
+        /* content를 변수로 해놔야 값을 선택하면 선택한 값이 title 창에 보이게끔 할 수 있음 */
+        /* content: '선택하세요'; */
+        content: var(--inputValue);
+      }
+
+      .title:checked {
+        background-color: pink;
+      }
+
+      /* 인접 형제 선택자 */
+      /* 형제는 더하기(+)  여기서는 같은 라인에 있는 menu*/
+      .title:checked + .menu {
+        display: block;
+      }
+      .menu {
+        display: none; /*title을 클릭하면 나타나게끔 할 것*/
+        width: 150px;
+        border: 2px solid purple;
+        border-radius: 10px;
+        overflow: hidden; /*보라색 모서리 영역 넘치는거 없애기 */
+      }
+      .menu input {
+        display: none;
+      }
+      .menu label {
+        display: block;
+        height: 40px;
+        padding: 10px;
+      }
+      .menu label:hover {
+        background-color: lightblue;
+      }
+    </style>
+    <script>
+      const selectFunc = (e) => {
+        // 이렇게 하면 사과를 선택하면 그 줄 전체(input 전체)를 선택한 것과 같음 : e.target
+        console.log(e.target.id);
+        document.getElementById(
+          'title'
+        ).style.cssText = `--inputValue : "${e.target.id}" `;
+        document.getElementById('title').click(); //다시 title창을 눌렀을때 다시 닫히게끔, 값을 선택한 후에
+      };
+    </script>
+  </head>
+  <body>
+    <input type="checkbox" class="title" id="title" />
+    <ul class="menu" id="menu">
+      <li>
+        <input
+          type="radio"
+          name="item"
+          id="study"
+          onclick="selectFunc(event)"
+        /><label for="study">공부</label>
+      </li>
+      <li>
+        <input
+          type="radio"
+          name="item"
+          id="rice"
+          onclick="selectFunc(event)"
+        /><label for="rice">밥</label>
+      </li>
+      <li>
+        <input
+          type="radio"
+          name="item"
+          id="sleep"
+          onclick="selectFunc(event)"
+        /><label for="sleep">잠</label>
+      </li>
+    </ul>
+  </body>
+</html>

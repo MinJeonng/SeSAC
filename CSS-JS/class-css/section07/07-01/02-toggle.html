@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- 가상요소 선택자 : 주변 혹은 일부분을 변경하는 선택자 -->
+    <title>toggle (가상요소 선택자)</title>
+    <style>
+      .toggle {
+        /* 고유의, 즉 원래 거를 안보이게 하고 내가 커스텀한 방법으로 하고 싶으면 아래
+        checkbox를 그냥 input으로 하면 원래 있던 동그란 모양이니까.
+        즉, appearance : none -> 기본 디자인을 제거하기 위해 사용하는 특성
+        */
+        appearance: none;
+        width: 40px;
+        height: 24px;
+        border-radius: 1.6rem;
+        background-color: rgb(143, 225, 143);
+      }
+      /* 가상 요소 선택자 */
+      .toggle::after {
+        display: block;
+
+        /* content에 문장 안쓰고 아래 내가 커스텀한걸 그대로 보이게 하려면 '' 빈 문자열로 냅두기 */
+        content: '';
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        border-radius: 50%;
+        margin: 2px;
+
+        /* 실제로 이동하는 알맹이이기에, 직접 toggle에 주면 작동이 안되기에 여기다가 적용
+        이 뜻은 스므스하게 움직이게 하기 위해서 !!!
+        */
+        transition: margin-left 0.3s;
+      }
+
+      .toggle:checked {
+        /*checkbox가 체크가 되었을때 */
+        background-color: rgb(35, 132, 35);
+      }
+      .toggle:checked::after {
+        /* 체크가 된 부분에 그 이후에 발생하는 css */
+        margin-left: 18px;
+      }
+    </style>
+    <script>
+      const toggle = (e) => {
+        // e.target.checked;
+        console.log(e.target.checked);
+      };
+    </script>
+  </head>
+  <body>
+    <input type="checkbox" class="toggle" onclick="toggle(event)" />
+  </body>
+</html>
