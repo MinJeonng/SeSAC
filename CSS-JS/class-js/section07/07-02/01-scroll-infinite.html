@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>무한스크롤 실습</title>
+    <style>
+      .box {
+        width: 500px;
+        height: 500px;
+        background-color: green;
+        margin: 50px;
+      }
+    </style>
+    <script>
+      window.addEventListener('scroll', () => {
+        // scrollTop = window.scrollY 랑 동일한 의미
+        const scrollPercent =
+          document.documentElement.scrollTop /
+          (document.documentElement.scrollHeight -
+            document.documentElement.clientHeight);
+        console.log('스크롤을 검사합니다.');
+
+        if (scrollPercent >= 0.7) {
+          console.log('상자를 그려줘');
+          const 기존네모상자 = document.getElementById('showResult').innerHTML;
+          document.getElementById('showResult').innerHTML =
+            기존네모상자 +
+            `
+           <div class="box"></div>
+          `;
+        } else {
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="showResult">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+</html>

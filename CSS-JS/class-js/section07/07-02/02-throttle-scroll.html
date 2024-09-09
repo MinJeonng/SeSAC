@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>무한스크롤 실습</title>
+    <style>
+      .box {
+        width: 500px;
+        height: 500px;
+        background-color: green;
+        margin: 50px;
+      }
+    </style>
+    <script>
+      const showResult = () => {
+        const 기존네모상자 = document.getElementById('showResult').innerHTML;
+        document.getElementById('showResult').innerHTML =
+          기존네모상자 +
+          `
+           <div class="box"></div>
+          `;
+      };
+
+      let timer;
+      window.addEventListener('scroll', () => {
+        // scrollPercent : 현재 스크롤 위치가 페이지 전체 높이에서 차지하는 비율
+        const scrollPercent =
+          document.documentElement.scrollTop /
+          (document.documentElement.scrollHeight -
+            document.documentElement.clientHeight);
+
+        // early exit pattern
+        // if문으로 중첩으로 계속 쓰지말고 아래와 같이 return을 써서 위에서 맞지 않으면 어차피 아래는 실행이 안되니까
+        // 그런식으로 중첩문을 아래와 같이 써보기
+        if (scrollPercent < 0.7) return;
+        if (timer) return; //타이머가 설정되어 있으면 함수를 종료해서 중복 실행 방지
+        showResult();
+        console.log('스크롤 검사합니다.');
+
+        console.log('상자를 그려줘');
+
+        timer = setTimeout(() => {
+          //  0.5초가 지나고 나면 다시 null이 되게하여 스크롤이 되게끔
+          //0.5초동안 추가적인 이벤트 처리를 막고, 그 후에 타이머가 해제되어서 마지막 스크롤 위치를 확인하여 페이지가 완전히 스크롤된 경우 다시 새로운 네모 상자를 추가
+          clearTimeout(timer);
+          timer = null;
+
+          const scrollPercent =
+            document.documentElement.scrollTop /
+            (document.documentElement.scrollHeight -
+              document.documentElement.clientHeight);
+          if (scrollPercent === 1) showResult();
+        }, 500);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="showResult">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+</html>

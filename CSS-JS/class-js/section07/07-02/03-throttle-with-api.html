@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>스로틀스크롤 강아지API 실습</title>
+    <style>
+      .CSS_네모상자 {
+        width: 500px;
+        height: 500px;
+        background-color: green;
+        margin: 50px;
+      }
+    </style>
+    <script>
+      const JS_네모상자보여주는기능 = () => {
+        fetch('https://dog.ceo/api/breeds/image/random').then((받아온결과) => {
+          받아온결과.json().then((객체로변경한결과) => {
+            console.log('결과: ', 객체로변경한결과);
+
+            const 기존네모상자들 =
+              document.getElementById('HTML_네모상자보여주는곳').innerHTML;
+
+            const 사진주소 = 객체로변경한결과.message;
+            document.getElementById('HTML_네모상자보여주는곳').innerHTML =
+              기존네모상자들 +
+              `
+                        <img src="${사진주소}" class="CSS_네모상자" />
+                    `;
+          });
+        });
+      };
+
+      let 타이머;
+      window.addEventListener('scroll', () => {
+        const 스크롤퍼센트 =
+          document.documentElement.scrollTop /
+          (document.documentElement.scrollHeight -
+            document.documentElement.clientHeight);
+
+        // early exit pattern
+        // if문으로 중첩으로 계속 쓰지말고 아래와 같이 return을 써서 위에서 맞지 않으면 어차피 아래는 실행이 안되니까
+        // 그런식으로 중첩문을 아래와 같이 써보기
+        if (스크롤퍼센트 < 0.9) return;
+        if (타이머) return;
+
+        console.log('상자를 그려줍니다.');
+        JS_네모상자보여주는기능();
+
+        타이머 = setTimeout(() => {
+          clearTimeout(타이머);
+          타이머 = null;
+
+          const 마지막스크롤퍼센트 =
+            document.documentElement.scrollTop /
+            (document.documentElement.scrollHeight -
+              document.documentElement.clientHeight);
+          if (마지막스크롤퍼센트 === 1) JS_네모상자보여주는기능();
+        }, 1000);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="HTML_네모상자보여주는곳" class="CSS_네모상자보여주는곳">
+      <div class="CSS_네모상자"></div>
+      <div class="CSS_네모상자"></div>
+      <div class="CSS_네모상자"></div>
+    </div>
+  </body>
+</html>
