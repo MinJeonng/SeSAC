@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>검색실습</title>
+    <script>
+      const list = ['짱구', '맹구', '유리', '철수', '훈이'];
+
+      let timer;
+      const searchFunc = (e) => {
+        // 글자 하나를 검색하면 그게 timer에 입력되고, 또 하나 입력하면 기존에 등록된 timer는 삭제되어야함
+        // 이 방법을 통해 입력될떄마다 검색되는게 아니라, 최대한 적게 함수가 실행되게 할수잇음
+        //여기서도 한번 내가 철 이라고 입력하고 또다른 event가 없으면 2초뒤에 철이 들어가는 result를 찾아주는 것
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          const word = e.target.value;
+          console.log(word);
+
+          const result = list.filter((el) => el.includes(word));
+          console.log(result);
+          document.getElementById(
+            'showResult'
+          ).innerText = `검색결과 : ${result}`;
+        }, 2000);
+      };
+    </script>
+  </head>
+
+  <body>
+    <!-- 디바운싱 : 마지막 1번 실행(대기시간 갱신있음)
+      스로틀링 : 처음 1번실행 (대기시간 갱신없음)
+      -->
+    <input
+      type="text"
+      placeholder="친구를 검색하세요"
+      oninput="searchFunc(event)"
+    />
+
+    <div id="showResult"></div>
+  </body>
+</html>

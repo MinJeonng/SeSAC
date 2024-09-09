@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>디바운스 고양이API 실습</title>
+    <script>
+      let timer;
+      const searchFunc = (e) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          const word = e.target.value;
+
+          document.getElementById('showResult').innerHTML = `
+          <img src = "https://cataas.com/cat/${word}/says/hi" width = "300px"/>
+          `;
+        }, 1000);
+      };
+    </script>
+  </head>
+
+  <body>
+    <input
+      type="text"
+      placeholder="고양이를 검색하세요"
+      oninput="searchFunc(event)"
+    />
+
+    <div id="showResult"></div>
+  </body>
+</html>

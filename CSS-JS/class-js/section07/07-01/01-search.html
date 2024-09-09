@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>검색실습</title>
+    <script>
+      const list = ['짱구', '맹구', '유리', '철수', '훈이'];
+      const searchFunc = (e) => {
+        const word = e.target.value;
+        console.log(word);
+
+        const result = list.filter((el) => el.includes(word));
+        console.log(result);
+        document.getElementById(
+          'showResult'
+        ).innerText = `검색결과 : ${result}`;
+      };
+    </script>
+  </head>
+
+  <body>
+    <!-- 비효율적일 순 있겠지만 뭐하나 키보드로 누를떄마다 검색 함수가 진행 
+    so, 마지막까지 입력하고 한번만 실행되면 되니까 더 효율적인 방법은? 뒤에
+    -->
+    <input
+      type="text"
+      placeholder="친구를 검색하세요"
+      oninput="searchFunc(event)"
+    />
+
+    <div id="showResult"></div>
+  </body>
+</html>
