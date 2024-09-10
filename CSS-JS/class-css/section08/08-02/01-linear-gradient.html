@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>선형 그라데이션</title>
+    <style>
+      .box1 {
+        width: 300px;
+        height: 300px;
+        /* 0deg : puple->pink순으로 색이바뀜 */
+        background: linear-gradient(0deg, pink, purple);
+        /* 45deg : 45도 방향으로 핑크부터 보라까지 */
+        background: linear-gradient(45deg, pink, purple);
+
+        /* 이건 섞이는거 없이 어떻게 방향이 바뀌어가는지 확인할 때 좋음 */
+        /* 전체 30%까지 핑크, 30~100까지 퍼플 */
+        background: linear-gradient(40deg, pink 30%, purple 30% 100%);
+
+        /* pink가 가고, purple이 30퍼센트부터 그려지게 된 것 */
+        background: linear-gradient(20deg, pink, purple 30%);
+
+        /* 30%부터 퍼플 그려줘 */
+      }
+      .box2 {
+        width: 300px;
+        height: 300px;
+        /* 노랑이랑 빨강이랑 겹쳐서 보여지게 됌 */
+        background: linear-gradient(130deg, yellow, transparent),
+          linear-gradient(220deg, red, transparent);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+  </body>
+</html>

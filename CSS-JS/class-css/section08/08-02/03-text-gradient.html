@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>text 그라데이션 실습</title>
+    <style>
+      /*  https://cssgradient.io/  참고 */
+      .text1 {
+        background: linear-gradient(
+          54deg,
+          rgba(34, 193, 195, 1) 0%,
+          rgba(253, 187, 45, 1) 100%
+        );
+      }
+
+      .text2 {
+        background: linear-gradient(
+          54deg,
+          rgba(131, 58, 180, 1) 0%,
+          rgba(253, 29, 29, 1) 35%,
+          rgba(252, 176, 69, 1) 60%
+        );
+
+        background-clip: text;
+        color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="text1">상냥한 사람</h1>
+
+    <h2 class="text2">다정한 사람</h2>
+  </body>
+</html>

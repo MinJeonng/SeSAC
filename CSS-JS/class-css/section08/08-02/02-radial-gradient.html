@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>원형 그라데이션 실습</title>
+    <style>
+      .box1 {
+        width: 300px;
+        height: 300px;
+        /* (안쪽원, 바깥원)  %로 딱딱 색을 주면 부드럽게 이어지는게 아님*/
+        background: radial-gradient(pink 50%, purple 50% 100%);
+
+        background: radial-gradient(pink, purple);
+      }
+      .box2 {
+        width: 300px;
+        height: 300px;
+
+        background: radial-gradient(blue, white, orange, beige);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+  </body>
+</html>
