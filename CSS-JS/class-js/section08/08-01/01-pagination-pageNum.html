@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>페이지네이션 페이지 번호 만들기</title>
+    <script>
+      window.onload = () => {
+        const box = new Array(10).fill('짱구');
+        console.log(box);
+
+        const pages = box
+          .map((el, index) => {
+            return `<button>${index + 1}</button>`;
+          })
+          .join('  ');
+        console.log(pages);
+
+        document.getElementById('page').innerHTML = pages;
+      };
+    </script>
+  </head>
+  <body>
+    <div id="page"></div>
+  </body>
+</html>

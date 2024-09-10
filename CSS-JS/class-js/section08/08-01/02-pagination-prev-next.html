@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>페이지네이션 페이지 번호 만들기</title>
+    <script>
+      let startNum = 1;
+
+      const prevBtn = () => {
+        startNum = startNum - 10;
+        pagination();
+      };
+      const nextBtn = () => {
+        startNum = startNum + 10;
+        pagination();
+      };
+
+      const pagination = () => {
+        const box = new Array(10).fill('');
+
+        const pages = box
+          .map((el, index) => {
+            return `<button>${index + startNum}</button>`;
+          })
+          .join(' ');
+        console.log(pages);
+
+        document.getElementById('page').innerHTML = pages;
+      };
+      window.onload = () => {
+        pagination();
+      };
+    </script>
+  </head>
+  <body>
+    <button id="prev" onclick="prevBtn()">이전</button>
+    <span id="page"></span>
+    <button id="next" onclick="nextBtn()">다음</button>
+  </body>
+</html>
