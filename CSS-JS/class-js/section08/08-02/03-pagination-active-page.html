@@ -1,7 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
-    <title>페이지네이션 페이지 번호 만들기</title>
+    <title>페이지내이션 클릭한페이지 실습</title>
+    <style>
+      .CSS_클릭한페이지 {
+        color: red;
+      }
+    </style>
     <script>
       const 과일바구니 = [
         { name: '사과', price: 1000 },
@@ -116,79 +121,98 @@
         { name: '초록상자망고', price: 100000 },
         { name: '초록상자매실', price: 50000 },
         { name: '초록상자모과', price: 150000 },
-        { name: '초록상자포도', price: 130000 },
-        { name: '초록상자참외', price: 50000 },
-        { name: '초록상자복숭아', price: 100000 },
-        { name: '초록상자수박', price: 150000 },
-        { name: '초록상자자두', price: 150000 },
-        { name: '초록상자멜론', price: 250000 },
-        { name: '초록상자파인애플', price: 200000 },
-        { name: '초록상자토마토', price: 200000 },
-        { name: '초록상자망고', price: 100000 },
-        { name: '초록상자매실', price: 50000 },
       ];
 
-      let startNum = 1;
-
-      const lastNum = Math.ceil(과일바구니.length) / 10;
-
-      const prevBtn = () => {
-        if (startNum === 1) {
-          alert('더이상 내려갈 수 없어요. ');
+      let 클릭한페이지 = 1;
+      let 시작페이지 = 1;
+      const 마지막페이지 = Math.ceil(과일바구니.length / 10);
+      const JS_이전페이지이동기능 = () => {
+        if (시작페이지 === 1) {
+          alert('처음이에요! 더 이상 내려갈 수 없어요!');
         } else {
-          startNum = startNum - 10;
-          pagination();
+          시작페이지 = 시작페이지 - 10;
+          //마지막 페이지 쪽 갔다가 이전페이지 해서 전 배열로 가면 1이 눌려있게 하기 위해서
+          클릭한페이지 = 시작페이지;
+          JS_페이지그리기기능();
+          JS_과일그리기기능(클릭한페이지);
         }
       };
-      const nextBtn = () => {
-        if (startNum + 10 <= lastNum) {
-          startNum = startNum + 10;
-          pagination();
+      const JS_다음페이지이동기능 = () => {
+        if (시작페이지 + 10 <= 마지막페이지) {
+          시작페이지 = 시작페이지 + 10;
+          클릭한페이지 = 시작페이지;
+          JS_페이지그리기기능();
+          JS_과일그리기기능(클릭한페이지);
         } else {
-          alert('마지막 페이지 번호 넘어갑니다. 더이상 보여줄 수 없어요');
+          alert('마지막페이지번호를 넘어갑니다. 더 이상 보여줄 수 없어요.');
         }
       };
 
-      const pagination = () => {
-        const box = new Array(10).fill('');
-
-        const pages = box
+      //페이지 버튼
+      const JS_페이지그리기기능 = () => {
+        const 페이지들 = new Array(10)
+          .fill(1)
           .map((el, index) => {
-            const pageNum = index + startNum;
+            const 페이지번호 = index + 시작페이지;
 
-            return pageNum <= lastNum
-              ? `<button onclick = "showResult()">${pageNum}</button>`
-              : '';
+            // onclick에서 여러개의 함수가 들어갈 수 있음 ; 을 연결해서
+            return 페이지번호 <= 마지막페이지
+              ? `
+                        <button 
+                            onclick="JS_과일그리기기능(${페이지번호});클릭한페이지=${페이지번호};JS_페이지그리기기능();" 
+                            class=${
+                              클릭한페이지 === 페이지번호
+                                ? 'CSS_클릭한페이지'
+                                : ''
+                            }
+                        >
+                            ${페이지번호}
+                        </button>`
+              : ``;
           })
           .join(' ');
-        console.log(pages);
 
-        document.getElementById('page').innerHTML = pages;
+        document.getElementById('HTML_페이지보여주는곳').innerHTML = 페이지들;
       };
 
-      const showResult = () => {
-        const result = 과일바구니.filter((el, index) => {
-          return index <= 9;
+      // 모든페이지 다 그리기
+      // 페이지에서 떠야하는 내용 뜨는 공간
+      const JS_과일그리기기능 = (페이지번호담는통) => {
+        const 결과 = 과일바구니.filter((el, index) => {
+          const 건너뛸갯수 = (페이지번호담는통 - 1) * 10;
+          const 보여줄갯수 = 10;
+
+          if (건너뛸갯수 < index && index < 건너뛸갯수 + 보여줄갯수) {
+            return true; // 결과에 넣어줘
+          } else {
+            return false; // 버려줘
+          }
         });
-        document.getElementById('showResult').innerHTML = result
+
+        document.getElementById('HTML_과일진열하는곳').innerHTML = 결과
           .map(
-            (el, index) => `
-                  <div>${index + 1}. ${el.name} ${el.price}원</div>
-        `
+            (el) => `
+                <div>${el.name} ${el.price}원</div>
+            `
           )
           .join('');
       };
 
       window.onload = () => {
-        pagination();
+        JS_페이지그리기기능();
+
+        // 업로드 되었을때 첫 페이지 활성화 되어있게
+        JS_과일그리기기능(시작페이지);
       };
     </script>
   </head>
   <body>
-    <!-- 과일 목록 부분 -->
-    <div id="showResult"></div>
-    <button id="prev" onclick="prevBtn()">이전</button>
-    <span id="page"></span>
-    <button id="next" onclick="nextBtn()">다음</button>
+    <!-- 과일목록 -->
+    <div id="HTML_과일진열하는곳"></div>
+
+    <!-- 페이지 -->
+    <button onclick="JS_이전페이지이동기능()">이전페이지</button>
+    <span id="HTML_페이지보여주는곳"></span>
+    <button onclick="JS_다음페이지이동기능()">다음페이지</button>
   </body>
 </html>

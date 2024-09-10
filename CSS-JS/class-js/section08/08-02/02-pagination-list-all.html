@@ -157,7 +157,7 @@
             const pageNum = index + startNum;
 
             return pageNum <= lastNum
-              ? `<button onclick = "showResult()">${pageNum}</button>`
+              ? `<button onclick = "showResult(${pageNum})">${pageNum}</button>`
               : '';
           })
           .join(' ');
@@ -166,9 +166,17 @@
         document.getElementById('page').innerHTML = pages;
       };
 
-      const showResult = () => {
+      const showResult = (pageNumList) => {
         const result = 과일바구니.filter((el, index) => {
-          return index <= 9;
+          const showCount = 10;
+          const skipCount = (pageNumList - 1) * showCount;
+
+          if (skipCount <= index && index < skipCount + showCount) {
+            return true; //결과에 넣어줘
+          } else {
+            return false; //버려줘
+          }
+          // return index <= 9
         });
         document.getElementById('showResult').innerHTML = result
           .map(
