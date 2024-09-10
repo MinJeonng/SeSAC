@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>달력 초기값 실습</title>
+    <style>
+      /* 1. 달력껍데기와 아이콘 */
+      .CSS_나의날짜 {
+        position: relative;
+      }
+      /* 달력 아이콘 */
+      .CSS_나의날짜::-webkit-calendar-picker-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: transparent;
+        z-index: 1;
+      }
+
+      /* 년, 월, 일 이 삭제되어서 안보이게끔 */
+      .CSS_나의날짜::-webkit-datetime-edit-text,
+      ::-webkit-datetime-edit-year-field,
+      ::-webkit-datetime-edit-month-field,
+      ::-webkit-datetime-edit-day-field {
+        display: none;
+      }
+      .CSS_나의날짜::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: attr(
+          birth
+        ); /* 실무에선 변수명을 data-* 이렇게 함!! 이건 사람이 직접 만든걸 의미, 원래 있는게 아니라! */
+      }
+
+      .CSS_나의날짜:valid::after {
+        /* 여기서 after는 내가 따로 정한 placeholder */
+        display: none;
+      }
+      .CSS_나의날짜:invalid::after {
+        color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <input
+      type="date"
+      class="CSS_나의날짜"
+      birth="생일을 선택해주세요"
+      required
+    />
+  </body>
+</html>
