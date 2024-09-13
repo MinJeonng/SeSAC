@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>react 실습</title>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <!-- babel 다운로드 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- babel :  최신문법으로 작성해도, 옛문법으로 바꿔준다 ,so 구버전 브라우저에서도 사용 가능하다!
+    가짜 html(JSX)로 입력하면, 진짜 Html로 바꿔준다., 즉 '<h2>안녕하세요</h2>' 이건 JSX여서 가짜 html이기에 이걸 진짜로 바꿔준다는 것
+    -->
+
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<h2>안녕하세요</h2>);
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

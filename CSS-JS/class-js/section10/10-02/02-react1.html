@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- react 다운로드 -->
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <title>react 실습</title>
+    <script>
+      ReactDOM.createRoot(document.getElementById('root'));
+      // 이렇게 써버리면 문법에러가 뜸
+      // render() 괄호안에는 'JSX' 라고 한다.
+      //JSX는 html이 아님! 확장가능한 마크업 언어임
+      root.render(<h2>안녕하세요</h2>);
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Jquery 실습</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const registerFunc = () => {
+        //1.자바스크립트
+        document.getElementById('profile').innerHTML = '<p>이름 : 흰둥이</p>';
+
+        //class는 여러개가 올 수 있어서 해당 클래스의 몇번째에 해당하는지 알려줘야함!!!
+        document.getElementsByClassName('profileClass').item[0].style =
+          'color:red';
+
+        //2. 제이쿼리
+        $('profile').html('<p>이름 : 흰둥이</p>');
+        $('profileClass')[0].style = 'color : red';
+      };
+    </script>
+  </head>
+  <body>
+    <div id="profile" class="profileClass"></div>
+    <button onclick="registerFunc()">등록하기</button>
+  </body>
+</html>
