@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>다테일 보여주는 곳</title>
+    <script>
+      window.onload = () => {
+        // 1. 로컬스토리지에서 불러오기
+        const 입력한프로필내용 = localStorage.getItem('입력한프로필내용');
+        console.log(입력한프로필내용); // <p>이름: <em>철수</em></p> ...
+
+        // 2. 화면에 보여주기
+        document.getElementById('HTML_프로필보여주는곳').innerHTML =
+          입력한프로필내용;
+      };
+    </script>
+  </head>
+  <body>
+    <div id="HTML_프로필보여주는곳"></div>
+  </body>
+</html>

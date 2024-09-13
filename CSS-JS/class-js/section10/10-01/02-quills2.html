@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>웹에디터 실습</title>
+  </head>
+  <body>
+    <!-- Include stylesheet -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css"
+      rel="stylesheet"
+    />
+
+    <!-- Create the editor container -->
+    <div id="editor">
+      <p>친구의 프로필을 입력하세요.</p>
+    </div>
+    <button onclick="JS_프로필등록기능()">등록하기</button>
+
+    <!-- Include the Quill library -->
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+
+    <!-- Initialize Quill editor -->
+    <script>
+      const quill = new Quill('#editor', {
+        theme: 'snow',
+      });
+
+      const JS_프로필등록기능 = () => {
+        // 1. 웹에디터에 입력한 프로필내용 가져오기
+        const 입력한프로필내용 = quill.getSemanticHTML();
+        console.log(입력한프로필내용);
+
+        // 2. 로컬스토리지에 저장하기
+        localStorage.setItem('입력한프로필내용', 입력한프로필내용);
+
+        // 3. 웹에디터 입력창 초기화하기
+        // 내가 입력한내용으로 바꾸기
+        quill.setText('친구의 프로필을 입력하세요.');
+      };
+    </script>
+  </body>
+</html>
