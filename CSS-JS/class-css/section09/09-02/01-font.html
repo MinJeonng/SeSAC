@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>폰트 실습</title>
+    <style>
+      /* 1. 폰트만들기 */
+      @font-face {
+        font-family: 철수의폰트;
+        src: url("./00-myfont01.woff2");
+      }
+      @font-face {
+        font-family: 영희의폰트;
+        src: url("./00-myfont02.woff2");
+      }
+      /* 2. 기본적으로 모두 철수의폰트 사용하기 */
+      * {
+        font-family: 철수의폰트;
+      }
+
+      /* 3. 내가 원하는 부분에서만 영희의폰트 사용하기 */
+      .CSS_네모박스 {
+        font-family: 영희의폰트;
+      }
+    </style>
+  </head>
+  <body>
+    <div>안녕하세요</div>
+    <div>안녕하세요</div>
+
+    <br /><br />
+
+    <div class="CSS_네모박스">안녕하세요</div>
+  </body>
+</html>
