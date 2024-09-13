@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SCSS 실습</title>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/sass.js/0.9.12/sass.sync.min.js"
+    ></script>
+    <style id="철수의크레파스상자"></style>
+
+    <script>
+      fetch('./01-upgrade-css1.sass')
+        .then((불러온SCSS파일) => 불러온SCSS파일.text())
+        .then((불러온SCSS파일텍스트내용) => {
+          Sass.compile(불러온SCSS파일텍스트내용, (CSS로변경된내용) => {
+            document.getElementById('철수의크레파스상자').textContent =
+              CSS로변경된내용.text;
+          });
+        });
+    </script>
+  </head>
+  <body>
+    <button class="CSS_버튼-1">철수 버튼</button><br />
+    <button class="CSS_버튼-2">영희 버튼</button><br />
+    <button class="CSS_버튼-3">훈이 버튼</button>
+  </body>
+</html>

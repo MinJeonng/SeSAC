@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emotion/css@11.13.0/dist/emotion-css.umd.min.js"></script>
+    <script>
+      // 1. 웹팩이란 도구를 사용하면, 아래처럼 만들어짐
+      window.onload = () => {
+        const btnStyle = window.emotion.css`
+            background-color : blue;
+            color : white;
+       `;
+        document.getElementById('box').innerHTML = `
+        <button class = "${btnStyle}">등록하기</button>
+        `;
+      };
+    </script>
+  </head>
+  <body>
+    <div id="box"></div>
+  </body>
+</html>
