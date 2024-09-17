@@ -17,6 +17,7 @@
     가짜 html(JSX)로 입력하면, 진짜 Html로 바꿔준다., 즉 '<h2>안녕하세요</h2>' 이건 JSX여서 가짜 html이기에 이걸 진짜로 바꿔준다는 것
     -->
 
+    <!-- script type만 babel로 지정해주어도 인식함 -->
     <script type="text/babel">
       const root = ReactDOM.createRoot(document.getElementById('root'));
       root.render(<h2>안녕하세요</h2>);
