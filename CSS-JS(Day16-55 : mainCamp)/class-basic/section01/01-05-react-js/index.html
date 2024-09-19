@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>유튜브 구독하기 실습</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel" src="./youtuber.js"></script>
+    <script type="text/babel" src="./list.js"></script>
+    <script type="text/babel" src="./index.js"></script>
+
+    <script type="text/babel">
+      const component = ReactDOM.createRoot(document.getElementById('root'));
+      component.render(<MainPage />);
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
