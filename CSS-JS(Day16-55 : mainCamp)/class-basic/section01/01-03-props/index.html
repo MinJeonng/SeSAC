@@ -1,0 +1,64 @@
+<!-- 전달되는 값 : 인자(argument), 전달받는 값 : 매개변수(파라미터) 
+즉, 전달받는 값 ->> 이게 props (properties) 
+-->
+
+<!-- hooks : use로 시작하는 것들
+ 
+1. useState : state 만들어줌
+
+state : 컴포넌트 전용 변수
+
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>react 컴포넌트 실습</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- babel : 최신문법으로 작성해도, 많은 브라우저에서 실행 가능하도록 옛날 문법으로 바꿔줌 
+    : 가짜 HTML(JSX) 입력하면, 진짜 HTML로 바꿔줌 
+    -->
+
+    <script type="text/babel" src="./button.js"></script>
+    <script type="text/babel" src="./input.js"></script>
+    <script type="text/babel">
+      const apple = 2;
+      const banana = '바나나없어요.';
+
+      const first = ReactDOM.createRoot(document.getElementById('root'));
+      first.render(<h1>안녕하세요</h1>);
+
+      const component = ReactDOM.createRoot(
+        document.getElementById('component')
+      );
+      component.render(
+        <div>
+          {btns}
+          <br />
+          {InputFunc({
+            bag: apple,
+            fruit: banana,
+            info: '함수',
+          })}
+
+          <InputFunc bag={apple} fruit={banana} info={'컴포넌트'} />
+        </div>
+      );
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <div id="component"></div>
+  </body>
+</html>

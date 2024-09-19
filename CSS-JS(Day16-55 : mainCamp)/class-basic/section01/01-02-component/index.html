@@ -1,0 +1,53 @@
+<!-- section01 react.html 공부한거 다시 공부하는 파일 -->
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>react 컴포넌트 실습</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- babel : 최신문법으로 작성해도, 많은 브라우저에서 실행 가능하도록 옛날 문법으로 바꿔줌 
+    : 가짜 HTML(JSX) 입력하면, 진짜 HTML로 바꿔줌 
+    -->
+
+    <script type="text/babel" src="./button.js"></script>
+    <script type="text/babel" src="./input.js"></script>
+    <script type="text/babel">
+      /*
+      window는 생략이 앞에 가능하기에 아래같이 쓸 수 있는 것
+      원래는 window.alert()
+      alert()
+      document()
+
+      */
+
+      const first = ReactDOM.createRoot(document.getElementById('root'));
+      first.render(<h1>안녕하세요</h1>);
+
+      const component = ReactDOM.createRoot(
+        document.getElementById('component')
+      );
+      component.render(
+        <div>
+          {btns}
+          <br />
+          <InputFunc />
+        </div>
+      );
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <div id="component"></div>
+  </body>
+</html>
