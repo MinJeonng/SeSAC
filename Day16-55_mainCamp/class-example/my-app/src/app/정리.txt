@@ -1,0 +1,15 @@
+app라는 폴더안에 내용만 페이지로 작동!
+
+꼭 이 안에 있어야함
+
+next에선 app폴더안에 page.tsx가 localhost:3000/ 
+
+넥스트에선 layout이 가장 먼저 나오고 그 다음에 조립되는거임
+
+next 페이지 조립 방식 : 레이아웃 + 페이지
+
+바깥에 레이아웃, 안쪽에 페이지
+
+layout.tsx도 태그 작성할 수 있음
+framework 이므로 layout.tsx, page.tsx 의 이름을 바꿀 수 없음
+
