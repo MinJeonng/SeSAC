@@ -1,0 +1,21 @@
+.btnStyle {
+  background: yellow;
+  margin-bottom: 1rem;
+
+  /* tailwind
+  text에 내가 만들어둔 색을 쓰겠다
+  */
+  @apply text-customColor;
+}
+.boxStyle {
+  width: 200px;
+  height: 150px;
+  margin-bottom: 1rem;
+  @apply bg-customColor2;
+}
+.boxStyle1 {
+  width: 200px;
+  height: 150px;
+  padding: 30px; /*tailwind base에 이미 box-sizing:border-box 들어가있음*/
+  @apply bg-customColor2;
+}
