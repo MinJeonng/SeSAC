@@ -1,17 +1,18 @@
 //함수 변수, 기능이 들어가있으면 ts
 // jsx 값을 리턴하고 있다면 .tsx로
 
-import { useState } from 'react';
+import { ChangeEvent, MouseEvent, useState } from 'react';
 
 const Signup = () => {
-  const [writer, setWriter] = useState<string>('');
-  const [title, setTitle] = useState<string>('');
-  const [content, setContent] = useState<string>('');
+  const [writer, setWriter] = useState('');
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
 
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState(false);
 
   // 작성자 변경 핸들러 함수
-  const onChangeWriter = (event) => {
+  //함수에 들어오는 매개변수는 타입추론이 불가능해서 반드시 명시해줘야함!
+  const onChangeWriter = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setWriter(value);
 
@@ -23,7 +24,7 @@ const Signup = () => {
   };
 
   // 제목 변경 핸들러 함수
-  const onChangeTitle = (event) => {
+  const onChangeTitle = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setTitle(value);
 
@@ -35,7 +36,7 @@ const Signup = () => {
   };
 
   // 내용 변경 핸들러 함수
-  const onChangeContent = (event) => {
+  const onChangeContent = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setContent(value);
 
@@ -47,7 +48,8 @@ const Signup = () => {
   };
 
   // 등록 버튼 클릭 핸들러 함수
-  const onClickSubmit = (event) => {
+  // user가 마우스를 이용해서 클릭하니까! mouseEvent
+  const onClickSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     alert('회원가입을 축하합니다.');
   };
 

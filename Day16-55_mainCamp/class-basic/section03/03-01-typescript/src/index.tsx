@@ -11,7 +11,8 @@ const router = createBrowserRouter([
   { path: '/signup', element: <Signup /> },
 ]);
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
+//as 뒤는 막 쓰면 안됌, 컴퓨터는 타입을 모르고 나는 알때만 사용가능함
+// const root = ReactDOM.createRoot(document.getElementById('root') as ReactDOM.Container);
 // root.render(<RouterProvider router={router} />);
 
 const rootElement = document.getElementById('root');

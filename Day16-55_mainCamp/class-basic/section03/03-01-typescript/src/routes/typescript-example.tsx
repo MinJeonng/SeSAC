@@ -28,12 +28,6 @@ const TypescriptExample = () => {
   //객체타입
 
   // hobby는 있어도 되고 없어도 되게 하려면 아래와 같음
-  interface IProfile {
-    name: string;
-    age: number | string;
-    school: string;
-    hobby?: string; // 물음표 : 있어도 되고 없어도 되는 property
-  }
 
   const profile: IProfile = {
     name: 'kim',
