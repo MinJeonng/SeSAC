@@ -1,0 +1,4 @@
+.showFont {
+  font-family: var(--부분지정폰트변수);
+  font-size: 2rem;
+}

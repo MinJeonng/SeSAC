@@ -25,3 +25,8 @@ box-sizing: border-box;
     font-size: 20px;
   }
 }
+
+/* 글로벌 폰트 적용 */
+* {
+  font-family: var(--글로벌폰트변수);
+}
