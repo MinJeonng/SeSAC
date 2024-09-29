@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import ApolloSetting from '@/commons/settings/06-02-apollo-setting';
 
 // 원하는 부분은 이 폰트 지정
 //100~900까지 모두 지원한다는 의미
@@ -30,7 +31,7 @@ export default function RootLayout(props) {
       {/* 즉, layout.tsx는 props로 받은 컴포넌트를 감싸고 있는 것 ! */}
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div>======여기까지는 헤더입니다/======</div>
-        {props.children}
+        <ApolloSetting>{props.children}</ApolloSetting>
         <div>======여기까지는 푸터입니다/======</div>
       </body>
     </html>

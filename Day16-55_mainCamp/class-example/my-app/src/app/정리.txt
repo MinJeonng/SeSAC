@@ -13,3 +13,12 @@ next 페이지 조립 방식 : 레이아웃 + 페이지
 layout.tsx도 태그 작성할 수 있음
 framework 이므로 layout.tsx, page.tsx 의 이름을 바꿀 수 없음
 
+
+apollo에서 useMutation을 꺼내올 수 있음
+const [실행함수] = useMutation()
+
+이걸 실행하게 되면 graphql 이 실행되는 것.
+무슨 api를 쓸지 적어둬야함
+
+
+graphql은 내가 원하는 정보만 받아올 수 잇음
