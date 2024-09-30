@@ -40,7 +40,7 @@ export default function StaticRoutingMovedPage() {
       {/* 2. &&해서 하기 */}
       <div>작성자 : {data && data.fetchBoard.writer}</div>
 
-      {/* 3. ? 옵셔널 체이닝  : 있으면 쓰고, 없으면 쓰지마 */}
+      {/* 3. ? 옵셔널 체이닝  : 있으면 쓰고, 없으면 쓰지않아도 된다 */}
       <div>제목 : {data?.fetchBoard.title}</div>
     </>
   );
