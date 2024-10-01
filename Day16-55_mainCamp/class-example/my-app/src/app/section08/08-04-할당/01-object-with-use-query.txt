@@ -1,0 +1,37 @@
+function useQuery(qqq) {
+    //qqq API 요청하기
+    return{
+        data : {
+            fetchBoard : {
+                writer : "새싹"
+            }
+        },
+        loading : false,
+        refetch : ()=>{
+            console.log("리패치가 실행됩니다.")
+        }
+    }    
+}
+
+useQuery("FETCH_BOARD")
+{data: {…}, loading: false, refetch: ƒ}data: fetchBoard: {writer: '새싹'}[[Prototype]]: Objectloading: falserefetch: ()=>{             console.log("리패치가 실행됩니다.")         }[[Prototype]]: Object
+
+const result = useQuery("FETCH_BOARD")
+undefined
+
+result.data
+{fetchBoard: {…}}fetchBoard: writer: "새싹"[[Prototype]]: Object[[Prototype]]: Object
+
+result.refetch()
+VM341:11 리패치가 실행됩니다.
+
+const {data, loading, refetch} = useQuery("FETCH_BOARD") -> 이게 구조분해 할당
+
+data -> 이렇게 {}안에 정의된 값만 적어도 원하는 값이 나온다는 것
+{fetchBoard: {…}}
+
+loading
+false
+
+refetch()
+VM341:11 리패치가 실행됩니다.

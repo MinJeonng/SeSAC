@@ -1,7 +1,6 @@
 'use client';
 
 import { gql, useMutation, useQuery } from '@apollo/client';
-import { Fragment } from 'react';
 
 // 게시글 조회하기
 const FETCH_BOARDS = gql`
@@ -28,6 +27,10 @@ const DELETE_BOARD = gql`
 export default function StaticRoutingMovedPage() {
   const { data } = useQuery(FETCH_BOARDS);
   console.log(data);
+  /*
+  const result = useQuery(FETCH_BOARD);
+  console.log(result.date) 해도 위랑 같은 결과를 가져올 수 있음
+  */
 
   const [deleteBoard] = useMutation(DELETE_BOARD);
 
@@ -40,7 +43,7 @@ export default function StaticRoutingMovedPage() {
     });
 
     // console.log(data.deleteBoard.number);
-    // alert(`${e.number}가 삭제되었습니다.`);
+    // alert(`${data.deleteBoard.message}}가 삭제되었습니다.`);
   };
 
   return (
@@ -57,6 +60,7 @@ export default function StaticRoutingMovedPage() {
         // 3. 만약 프레그먼트에 key를 쓰려면  <Fragment key={el.number}></Fragment>로 쓰면됌
         <div key={el.number}>
           <span>
+            {/* 여기서는 checkbox랑은 연결안됌 */}
             <input type="checkbox" />
           </span>
           <span style={{ margin: '10px' }}>{el.number}</span>
