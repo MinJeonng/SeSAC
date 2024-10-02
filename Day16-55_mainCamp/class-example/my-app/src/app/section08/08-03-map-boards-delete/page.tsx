@@ -29,10 +29,27 @@ export default function StaticRoutingMovedPage() {
   console.log(data);
   /*
   const result = useQuery(FETCH_BOARD);
-  console.log(result.date) 해도 위랑 같은 결과를 가져올 수 있음
+  console.log(result.data) 해도 위랑 같은 결과를 가져올 수 있음
   */
 
+  //블로깅할거
+  /*
+{
+  "data": {
+    "deleteBoard": {
+      "_id": null,
+      "number": 1,
+      "message": "게시물이 정상적으로 삭제되었습니다."
+    }
+  }
+} -> 처음에 delete 하면 이렇게 되길래 객체인줄 알았다 생각해보니..!
+  */
+
+  // useMutation을 하면  [ƒ, {…}]  이렇게 배열 안에 두개가 나오는데 [0]에 있는 함수만 쓰기 위해 아래와 같이 구조분해할당을 한 것임!
   const [deleteBoard] = useMutation(DELETE_BOARD);
+  // 이 아래가 그대로 가지고 온 것인거다. 즉, 구조분해할당 안한 경우
+  // const result = useMutation(DELETE_BOARD);
+  // console.log(result, 'delete');
 
   const onClickDelete = (e) => {
     deleteBoard({
