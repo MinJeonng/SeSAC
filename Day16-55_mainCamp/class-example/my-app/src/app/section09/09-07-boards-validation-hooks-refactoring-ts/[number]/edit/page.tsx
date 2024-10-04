@@ -2,7 +2,7 @@
 //수정하는 페이지에 들어왔을때 초기값이 보여야함
 'use client';
 
-import BoardsWrite from '@/components/09-06-boards-write-validation-hooks-refactoring';
+import BoardsWrite from '@/components/09-07-boards-write-validation-hooks-refactoring-ts';
 import { gql, useQuery } from '@apollo/client';
 import { useParams } from 'next/navigation';
 
