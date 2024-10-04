@@ -20,21 +20,21 @@ export default function BoardWrite(props: IBoardWriteProps) {
       <input
         onChange={onChangeWriter}
         type="text"
-        defaultValue={props.data?.fetchBoard.writer}
+        defaultValue={props.data?.fetchBoard?.writer ?? ''}
       />{' '}
       <br />
       제목 :{' '}
       <input
         onChange={onChangeTitle}
         type="text"
-        defaultValue={props.data?.fetchBoard.title}
+        defaultValue={props.data?.fetchBoard?.title ?? ''}
       />
       <br />
       내용 :{' '}
       <input
         onChange={onChangeContents}
         type="text"
-        defaultValue={props.data?.fetchBoard.contents}
+        defaultValue={props.data?.fetchBoard?.contents ?? ''}
       />
       <br />
       <button onClick={props.isEdit ? onEditSubmit : onClickSubmit}>
