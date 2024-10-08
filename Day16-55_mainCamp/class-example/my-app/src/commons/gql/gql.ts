@@ -17,6 +17,7 @@ const documents = {
     "\n  mutation createProduct(\n    # 타입 쓸때 ! 있는지 없는지 잘 확인하기\n    $seller: String\n    $createProductInput: CreateProductInput!\n  ) {\n    createProduct(seller: $seller, createProductInput: $createProductInput) {\n      _id\n      number\n      message\n    }\n  }\n": types.CreateProductDocument,
     "\n  query fetchBoard($number: Int) {\n    fetchBoard(number: $number) {\n      number\n      writer\n      title\n      contents\n      createdAt\n    }\n  }\n": types.FetchBoardDocument,
     "\n  mutation deleteBoard($number: Int) {\n    deleteBoard(number: $number) {\n      _id\n      number\n      message\n    }\n  }\n": types.DeleteBoardDocument,
+    "\n  query fetchBoards {\n    fetchBoards {\n      number\n      writer\n      title\n      contents\n      createdAt\n    }\n  }\n": types.FetchBoardsDocument,
     "\n  mutation updateBoard(\n    $number: Int\n    $myWriter: String\n    $myTitle: String\n    $myContents: String\n  ) {\n    updateBoard(\n      number: $number\n      writer: $myWriter\n      title: $myTitle\n      contents: $myContents\n    ) {\n      _id\n      number\n      message\n    }\n  }\n": types.UpdateBoardDocument,
 };
 
@@ -50,6 +51,10 @@ export function graphql(source: "\n  query fetchBoard($number: Int) {\n    fetch
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  mutation deleteBoard($number: Int) {\n    deleteBoard(number: $number) {\n      _id\n      number\n      message\n    }\n  }\n"): (typeof documents)["\n  mutation deleteBoard($number: Int) {\n    deleteBoard(number: $number) {\n      _id\n      number\n      message\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query fetchBoards {\n    fetchBoards {\n      number\n      writer\n      title\n      contents\n      createdAt\n    }\n  }\n"): (typeof documents)["\n  query fetchBoards {\n    fetchBoards {\n      number\n      writer\n      title\n      contents\n      createdAt\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
