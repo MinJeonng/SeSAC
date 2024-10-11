@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import ApolloSetting from '@/commons/settings/06-02-apollo-setting';
+import LayoutComponent from '@/commons/layout';
 
 // 원하는 부분은 이 폰트 지정
 //100~900까지 모두 지원한다는 의미
@@ -24,17 +25,19 @@ export const metadata: Metadata = {
   description: '전 쫀멋 프론트 개발자가 될거에요',
 };
 interface IProps {
-  props: React.ReactNode;
+  children: React.ReactNode;
 }
 
-export default function RootLayout({ props }: IProps) {
+export default function RootLayout({ children }: IProps) {
   return (
     <html lang="ko">
       {/* props.컴포넌트 하면 페이지가 나옴 */}
       {/* 즉, layout.tsx는 props로 받은 컴포넌트를 감싸고 있는 것 ! */}
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div>======여기까지는 헤더입니다/======</div>
-        <ApolloSetting>{props}</ApolloSetting>
+        <ApolloSetting>
+          <LayoutComponent>{children}</LayoutComponent>
+        </ApolloSetting>
         <div>======여기까지는 푸터입니다/======</div>
       </body>
     </html>
