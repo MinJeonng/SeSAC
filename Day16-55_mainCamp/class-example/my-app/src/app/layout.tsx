@@ -23,15 +23,18 @@ export const metadata: Metadata = {
   title: 'Next 공부중 홈페이지',
   description: '전 쫀멋 프론트 개발자가 될거에요',
 };
+interface IProps {
+  props: React.ReactNode;
+}
 
-export default function RootLayout(props) {
+export default function RootLayout({ props }: IProps) {
   return (
-    <html lang="en">
+    <html lang="ko">
       {/* props.컴포넌트 하면 페이지가 나옴 */}
       {/* 즉, layout.tsx는 props로 받은 컴포넌트를 감싸고 있는 것 ! */}
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div>======여기까지는 헤더입니다/======</div>
-        <ApolloSetting>{props.children}</ApolloSetting>
+        <ApolloSetting>{props}</ApolloSetting>
         <div>======여기까지는 푸터입니다/======</div>
       </body>
     </html>
@@ -47,4 +50,10 @@ http://localhost:3000/
 3. 해당 페이지컴포넌트를 통째로 props에 넣어서 실행하기
 -> app/tsx.tsx
 => <RootLayout children={<Home />} />
+
+
+<RootLayout>
+ <페이지레이아웃/>
+</RootLayout>
+
 */
