@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>안전한 리팩토링 실습</title>
+    <script>
+      // 구조분해할당 -> let {name, age, school} = profile 이부분이 아래 매개변수에 그대로 들어오게 된 것
+      const problem = ({ name, age, school }) => {
+        console.log(name, age, school);
+      };
+      const name = '철수';
+      const age = 12;
+      const school = '짱구초';
+
+      // 아래와 같이 객체로 전달하게 되면 problem1에서 발생한 문제가 없어짐. 순서를 잘 보면서 여기까지 되는걸 확인
+      problem({ name, age, school }); //shorthand-property
+    </script>
+  </head>
+  <body></body>
+</html>

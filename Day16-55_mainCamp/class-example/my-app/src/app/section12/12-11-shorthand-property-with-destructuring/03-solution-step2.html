@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>안전한 리팩토링 실습</title>
+    <script>
+      // 구조분해할당 -> let {name, age, school} = profile 이부분이 아래 매개변수에 그대로 들어오게 된 것
+      const problem = ({ name, age, school }) => {
+        console.log(name, age, school);
+      };
+      const myName = '철수';
+      const myAge = 12;
+      const mySchool = '짱구초';
+
+      const profile = {
+        name: myName,
+        age: myAge,
+        school: mySchool,
+      };
+      // 중괄호 하나 추가했다고, age가 빠져도 각각의 변수에 맞는 값들이 알아서 잘 들어가게됌
+      problem(profile);
+    </script>
+  </head>
+  <body></body>
+</html>

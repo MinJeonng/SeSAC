@@ -1,0 +1,18 @@
+<!-- 문제가 되는 상황 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>문제가 되는 상황</title>
+    <script>
+      const problem = (name, age, school) => {
+        console.log(name, age, school); // 아미, 3, 보듬훈련소
+      };
+      const name = '아미';
+      const age = 3;
+      const school = '보듬훈련소';
+
+      problem(name, school); // 이렇게 되면 age 값에 school 값이 들어가게됌 -> 문제발생
+    </script>
+  </head>
+  <body></body>
+</html>

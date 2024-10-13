@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>안전한 리팩토링 실습</title>
+    <script>
+      // 구조분해할당 -> let {name, age, school} = profile 이부분이 아래 매개변수에 그대로 들어오게 된 것
+      const problem = ({ name, age, school }) => {
+        console.log(name, age, school);
+      };
+      const name = '철수';
+      const age = 12;
+      const school = '짱구초';
+
+      // const profile = {
+      //   이렇게 키와 value 의 이름이 같으면 하나로 합칠 수 있음 -> shorthand-property
+      //   name: name,
+      //   age: age,
+      //   school: school,
+      // };
+      const profile = {
+        name,
+        age,
+        school,
+      };
+      // 중괄호 하나 추가했다고, age가 빠져도 각각의 변수에 맞는 값들이 알아서 잘 들어가게됌
+      problem(profile);
+    </script>
+  </head>
+  <body></body>
+</html>
