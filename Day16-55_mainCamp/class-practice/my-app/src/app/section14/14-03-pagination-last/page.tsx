@@ -61,7 +61,7 @@ export default function StaticRoutingMovedPage() {
       <span onClick={onClickPrevPage}>{`<`}</span>
       {new Array(10).fill('').map(
         (_, index) =>
-          // 마지막 페이지보다 작은 페이지들만 보여지게 하는 방법
+          // 마지막 페이지보다 작은 페이지들만 보여지게 하는 방법하
           index + startPage <= lastPage && (
             <span
               id={String(index + startPage)}
