@@ -1,9 +1,8 @@
 'use client';
 
-import List from '@/components/14-05-paginataion-last-refactoring/list';
-import Pagination from '@/components/14-05-paginataion-last-refactoring/pagination';
+import List from '@/components/14-06-pagination-last-refactoring-ts/list';
+import Pagination from '@/components/14-06-pagination-last-refactoring-ts/pagination';
 import { gql, useQuery } from '@apollo/client';
-import { useState } from 'react';
 
 // 게시글 조회하기
 const FETCH_BOARDS = gql`

@@ -17,7 +17,7 @@ const FETCH_BOARDS = gql`
 `;
 // 몇개의 게시글인지 count를 얻을 수 있음
 const FETCH_BOARDS_COUNT = gql`
-  query {
+  query fetchBoardsCount {
     fetchBoardsCount
   }
 `;

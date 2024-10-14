@@ -13,12 +13,8 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "\n  mutation createBoard(\n    # 타입 적는 곳\n    $myWriter: String\n    $myTitle: String\n    $myContents: String\n  ) {\n    # 전달할 변수 적는 곳\n    createBoard(writer: $myWriter, title: $myTitle, contents: $myContents) {\n      number\n      message\n    }\n  }\n": types.CreateBoardDocument,
-    "\n  mutation createProduct(\n    # 타입 쓸때 ! 있는지 없는지 잘 확인하기\n    $seller: String\n    $createProductInput: CreateProductInput!\n  ) {\n    createProduct(seller: $seller, createProductInput: $createProductInput) {\n      _id\n      number\n      message\n    }\n  }\n": types.CreateProductDocument,
-    "\n  query fetchBoard($number: Int) {\n    fetchBoard(number: $number) {\n      number\n      writer\n      title\n      contents\n      createdAt\n    }\n  }\n": types.FetchBoardDocument,
-    "\n  mutation deleteBoard($number: Int) {\n    deleteBoard(number: $number) {\n      _id\n      number\n      message\n    }\n  }\n": types.DeleteBoardDocument,
-    "\n  query fetchBoards {\n    fetchBoards {\n      number\n      writer\n      title\n      contents\n      createdAt\n    }\n  }\n": types.FetchBoardsDocument,
-    "\n  mutation updateBoard(\n    $number: Int\n    $myWriter: String\n    $myTitle: String\n    $myContents: String\n  ) {\n    updateBoard(\n      number: $number\n      writer: $myWriter\n      title: $myTitle\n      contents: $myContents\n    ) {\n      _id\n      number\n      message\n    }\n  }\n": types.UpdateBoardDocument,
+    "\n  query fetchBoards($page: Int) {\n    fetchBoards(page: $page) {\n      _id\n      writer\n      title\n      contents\n      createdAt\n    }\n  }\n": types.FetchBoardsDocument,
+    "\n  query fetchBoardsCount {\n    fetchBoardsCount\n  }\n": types.FetchBoardsCountDocument,
 };
 
 /**
@@ -38,27 +34,11 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  mutation createBoard(\n    # 타입 적는 곳\n    $myWriter: String\n    $myTitle: String\n    $myContents: String\n  ) {\n    # 전달할 변수 적는 곳\n    createBoard(writer: $myWriter, title: $myTitle, contents: $myContents) {\n      number\n      message\n    }\n  }\n"): (typeof documents)["\n  mutation createBoard(\n    # 타입 적는 곳\n    $myWriter: String\n    $myTitle: String\n    $myContents: String\n  ) {\n    # 전달할 변수 적는 곳\n    createBoard(writer: $myWriter, title: $myTitle, contents: $myContents) {\n      number\n      message\n    }\n  }\n"];
+export function graphql(source: "\n  query fetchBoards($page: Int) {\n    fetchBoards(page: $page) {\n      _id\n      writer\n      title\n      contents\n      createdAt\n    }\n  }\n"): (typeof documents)["\n  query fetchBoards($page: Int) {\n    fetchBoards(page: $page) {\n      _id\n      writer\n      title\n      contents\n      createdAt\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  mutation createProduct(\n    # 타입 쓸때 ! 있는지 없는지 잘 확인하기\n    $seller: String\n    $createProductInput: CreateProductInput!\n  ) {\n    createProduct(seller: $seller, createProductInput: $createProductInput) {\n      _id\n      number\n      message\n    }\n  }\n"): (typeof documents)["\n  mutation createProduct(\n    # 타입 쓸때 ! 있는지 없는지 잘 확인하기\n    $seller: String\n    $createProductInput: CreateProductInput!\n  ) {\n    createProduct(seller: $seller, createProductInput: $createProductInput) {\n      _id\n      number\n      message\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  query fetchBoard($number: Int) {\n    fetchBoard(number: $number) {\n      number\n      writer\n      title\n      contents\n      createdAt\n    }\n  }\n"): (typeof documents)["\n  query fetchBoard($number: Int) {\n    fetchBoard(number: $number) {\n      number\n      writer\n      title\n      contents\n      createdAt\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  mutation deleteBoard($number: Int) {\n    deleteBoard(number: $number) {\n      _id\n      number\n      message\n    }\n  }\n"): (typeof documents)["\n  mutation deleteBoard($number: Int) {\n    deleteBoard(number: $number) {\n      _id\n      number\n      message\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  query fetchBoards {\n    fetchBoards {\n      number\n      writer\n      title\n      contents\n      createdAt\n    }\n  }\n"): (typeof documents)["\n  query fetchBoards {\n    fetchBoards {\n      number\n      writer\n      title\n      contents\n      createdAt\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  mutation updateBoard(\n    $number: Int\n    $myWriter: String\n    $myTitle: String\n    $myContents: String\n  ) {\n    updateBoard(\n      number: $number\n      writer: $myWriter\n      title: $myTitle\n      contents: $myContents\n    ) {\n      _id\n      number\n      message\n    }\n  }\n"): (typeof documents)["\n  mutation updateBoard(\n    $number: Int\n    $myWriter: String\n    $myTitle: String\n    $myContents: String\n  ) {\n    updateBoard(\n      number: $number\n      writer: $myWriter\n      title: $myTitle\n      contents: $myContents\n    ) {\n      _id\n      number\n      message\n    }\n  }\n"];
+export function graphql(source: "\n  query fetchBoardsCount {\n    fetchBoardsCount\n  }\n"): (typeof documents)["\n  query fetchBoardsCount {\n    fetchBoardsCount\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
