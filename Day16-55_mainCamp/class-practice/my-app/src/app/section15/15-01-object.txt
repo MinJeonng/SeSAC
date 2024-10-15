@@ -1,0 +1,19 @@
+const profile = {
+  name : "철수",
+  age : 12,
+  school : "다람쥐초등학교",
+  hobby : {
+    hobby1 : "수영하기",
+    hobby2 : "축구하기",
+  }
+}
+
+profile.name = "영희"  //이렇게 하는건 가능
+profile = "공룡초등학교" //이건 안됌. const니까
+
+
+Object.freeze(profile)  //이렇게 하면 객체가 얼어버려서 profile.name = "영희" 이렇게 해도 적용이 안됌, 에러는 안남!! 그러나 적용이 안됌!
+
+
+
+

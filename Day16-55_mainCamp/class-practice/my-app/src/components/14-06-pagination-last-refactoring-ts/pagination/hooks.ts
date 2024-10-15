@@ -3,12 +3,14 @@ import { IPaginationProps } from '.';
 
 export const usePagination = ({ refetch, lastPage }: IPaginationProps) => {
   const [startPage, setStartPage] = useState(1);
+
   const onClickPage = (e: MouseEvent<HTMLSpanElement>) => {
     refetch({ page: Number(e.currentTarget.id) });
   };
   const onClickPrevPage = () => {
     if (startPage === 1) return;
     setStartPage(startPage - 10);
+
     refetch({ page: startPage - 10 });
   };
 
@@ -21,6 +23,7 @@ export const usePagination = ({ refetch, lastPage }: IPaginationProps) => {
 
   return {
     startPage,
+
     onClickNextPage,
     onClickPage,
     onClickPrevPage,

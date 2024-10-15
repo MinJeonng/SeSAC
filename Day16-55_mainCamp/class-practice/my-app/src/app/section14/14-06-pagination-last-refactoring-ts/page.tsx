@@ -24,7 +24,6 @@ const FETCH_BOARDS_COUNT = gql`
 `;
 export default function StaticRoutingMovedPage() {
   const { data, refetch } = useQuery(FETCH_BOARDS);
-
   // 구조분해할당으로 이름을 바꿀 수 있음, 그래서 여기선 boardsCountData가 data 역할을 하게 됌
   const { data: boardsCountData } = useQuery(FETCH_BOARDS_COUNT);
 

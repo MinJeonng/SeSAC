@@ -14,6 +14,7 @@ export interface IPaginationProps {
 export default function Pagination({ refetch, lastPage }: IPaginationProps) {
   const { startPage, onClickNextPage, onClickPage, onClickPrevPage } =
     usePagination({ refetch, lastPage });
+
   return (
     <>
       <span onClick={onClickPrevPage}>{`<`}</span>
