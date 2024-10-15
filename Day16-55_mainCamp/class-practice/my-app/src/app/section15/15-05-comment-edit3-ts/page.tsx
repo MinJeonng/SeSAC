@@ -1,5 +1,6 @@
 'use client';
 
+import CommentItem from '@/components/15-04-comment-edit3';
 import { gql, useQuery } from '@apollo/client';
 import { MouseEvent, useState } from 'react';
 
@@ -38,20 +39,9 @@ export default function StaticRoutingMovedPage() {
 
   return (
     <div>
-      {data?.fetchBoards.map((el, index) =>
-        selectedIndex[index] !== true ? (
-          <div key={el._id}>
-            <span style={{ margin: '10px' }}>{el.title}</span>
-            <span style={{ margin: '10px' }}>{el.writer}</span>
-            <button id={index} onClick={onClickEdit}>
-              수정하기
-            </button>
-          </div>
-        ) : (
-          // true면 눌렀다는거니까 아래 보여주는것.
-          <input type="text" key={el._id} />
-        )
-      )}
+      {data?.fetchBoards.map((el, index) => (
+        <CommentItem el={el} key={el._id} />
+      ))}
     </div>
   );
 }
