@@ -1,5 +1,6 @@
 'use client';
 
+import { FetchBoardsDocument } from '@/commons/gql/graphql';
 import CommentItem from '@/components/15-04-comment-edit3';
 import { gql, useQuery } from '@apollo/client';
 import { MouseEvent, useState } from 'react';
@@ -17,29 +18,11 @@ const FETCH_BOARDS = gql`
   }
 `;
 export default function StaticRoutingMovedPage() {
-  const { data } = useQuery(FETCH_BOARDS);
-  const [selectedIndex, setSelectedIndex] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
-
-  const onClickEdit = (e: MouseEvent<HTMLButtonElement>) => {
-    const qqq = [...selectedIndex];
-    qqq[Number(e.currentTarget.id)] = true;
-    setSelectedIndex(qqq);
-  };
+  const { data } = useQuery(FetchBoardsDocument);
 
   return (
     <div>
-      {data?.fetchBoards.map((el, index) => (
+      {data?.fetchBoards.map((el) => (
         <CommentItem el={el} key={el._id} />
       ))}
     </div>

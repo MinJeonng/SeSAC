@@ -18,24 +18,6 @@ const FETCH_BOARDS = gql`
 `;
 export default function StaticRoutingMovedPage() {
   const { data } = useQuery(FETCH_BOARDS);
-  const [selectedIndex, setSelectedIndex] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
-
-  const onClickEdit = (e: MouseEvent<HTMLButtonElement>) => {
-    const qqq = [...selectedIndex];
-    qqq[Number(e.currentTarget.id)] = true;
-    setSelectedIndex(qqq);
-  };
 
   return (
     <div>
