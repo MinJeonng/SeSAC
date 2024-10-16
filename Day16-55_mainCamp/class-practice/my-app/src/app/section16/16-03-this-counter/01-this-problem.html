@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>this의 이해</title>
+    <script>
+      //   여기말고 02,03꺼 보기
+      class counterClass {
+        count = 10;
+        // 1. 옛날방법 ,bind 써서 해결하는 방법도 알아야 함.
+        // up() {
+        //   /// this는 실행되는 주체에 따라서 동적으로 바뀌는 현상이 있다.
+        //     console.log("up의 this",  this) // 여기서의 this : 버튼 => this는 실행 주체가 누구냐에 따라서 바뀌어서
+        //   // 그래서 this.count를 하면 숫자가 아닌 버튼이 뜨게 됌
+        //   this.count = this.count + 1;
+        //   console.log('올린다~', this.count);
+        // }
+
+        // 2. 최신방법 , 화살표 함수를 써서 함
+        up = () => {
+          /// this는 실행되는 주체에 따라서 동적으로 바뀌는 현상이 있다.
+          // 그래서 this.count를 하면 숫자가 아닌 버튼이 뜨게 됌
+          this.count = this.count + 1;
+          console.log('올린다~', this.count);
+        };
+        button() {
+          console.log('button this', this); //this : counterClass
+
+          // this는 this를 감싸고 있는 객체나 클래스 , 즉 여기선 counterClass
+          //=> this는 현재 시각적으로 감싸고 있는 객체 및 클래스
+
+          const button = document.createElement('button');
+          button.innerText = 'count';
+
+          // bind를 쓰게 되면 up에서의 this는 button이 아니라 counterClass로 가져갈 수 있게 됌
+          //(1) 옛날방법
+          // button.addEventListener('click', this.up.bind(this));
+          button.addEventListener('click', this.up); //(2)
+          document.body.appendChild(button);
+        }
+      }
+      window.onload = () => {
+        // 설명서 바탕으로 인스턴스 만들기!
+        const counter = new counterClass();
+        counter.button();
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>this의 이해</title>
+    <script>
+      class counterClass {
+        count = 10;
+        // 해결방법 1: 화살표 함수 => 실행 주체가 바뀌어도 로직 상에서의 this를 유지함
+
+        up = () => {
+          console.log('up의 this', this); // this : counterClass
+          /// this는 실행되는 주체에 따라서 동적으로 바뀌는 현상이 있다.
+          // 그래서 this.count를 하면 숫자가 아닌 버튼이 뜨게 됌
+          this.count = this.count + 1;
+          console.log('올린다~', this.count);
+        };
+        button() {
+          console.log('button this', this); //this : counterClass
+
+          // this는 this를 감싸고 있는 객체나 클래스 , 즉 여기선 counterClass
+          //=> this는 현재 시각적으로 감싸고 있는 객체 및 클래스
+
+          const button = document.createElement('button');
+          button.innerText = 'count';
+
+          button.addEventListener('click', this.up);
+          document.body.appendChild(button);
+        }
+      }
+      window.onload = () => {
+        // 설명서 바탕으로 인스턴스 만들기!
+        const counter = new counterClass();
+        counter.button();
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,56 @@
+class Date {
+  qqq = 3
+  getFullYear(){
+
+  }
+  getMonth(){
+
+  }
+}
+
+const date = new Date() // 여기서 date를 인스턴스라고 부름
+date.qqq
+date.getFullYear()
+date.getMonth() //메서드
+
+const date2 = new Date() // 2번, 3번 찍어내기 가능!
+
+//실습
+class Monster{
+    power = 50
+    attack(){
+        console.log("공격개시")
+    }
+}
+
+
+class Superm extends Monster{
+
+    //오버라이딩
+    attack(){
+        console.log("슈퍼몬스터 필살기")
+    }
+    run(){
+        console.log("runrun")
+    }
+}
+undefined
+
+const monster = new Monster()
+
+monster.power
+50
+monster.attack()
+VM131:4 공격개시
+
+const superM = new Superm()
+superM.power
+50
+
+// 상속받았기 때문에 가능한 것이다.
+
+superM.attack()
+VM397:5 슈퍼몬스터 필살기
+
+superM.run()
+VM397:8 runrun

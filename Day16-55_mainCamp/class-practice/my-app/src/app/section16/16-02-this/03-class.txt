@@ -1,0 +1,23 @@
+
+class Profile {
+    name = "구글"
+    age  = 1000
+    school(){
+        console.log(this)
+    }
+}
+undefined
+
+const instance1 = new Profile()
+undefined
+
+instance1.name
+'구글'
+
+instance1.school()
+
+VM1629:5 Profile {name: '구글', age: 1000}
+//this를 하고 함수를 실행했을때 저게 나오는건 최상단이 저 객체니까 나오는것
+
+
+실행 주체가 누구냐에 따라서 감싸고 있는게 바뀌게 됌!

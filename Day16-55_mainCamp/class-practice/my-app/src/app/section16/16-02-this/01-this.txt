@@ -1,0 +1,15 @@
+this
+Window {0: Window, window: Window, self: Window, document: document, name: '', location: Location, …}
+
+function sum() {
+    console.log(this)
+}
+undefined
+
+sum()
+VM1028:2 Window {0: Window, window: Window, self: Window, document: document, name: '', location: Location, …}
+undefined
+
+
+//this : 현재 실행하는 환경 내에서 코드를 감싸고 있는 객체 또는 클래스
+

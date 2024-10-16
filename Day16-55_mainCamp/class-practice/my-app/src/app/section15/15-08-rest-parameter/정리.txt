@@ -1,0 +1,18 @@
+const profile = {
+    name : "철수",
+    age : 12,
+    school : "다람쥐",
+    hobby : "먹기",
+}
+undefined
+const {hobby, ...rest} = profile
+undefined
+rest
+{name: '철수', age: 12, school: '다람쥐'}
+profile
+{name: '철수', age: 12, school: '다람쥐', hobby: '먹기'}
+delete profile.hobby
+true
+profile
+{name: '철수', age: 12, school: '다람쥐'}
+delete쓰면 hobby는 완전히 삭제 됌
