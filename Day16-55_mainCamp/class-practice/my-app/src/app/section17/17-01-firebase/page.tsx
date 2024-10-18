@@ -12,7 +12,7 @@ export default function FirebasePage() {
     await addDoc(board, {
       writer: '신형만',
       title: '오늘 대출을 다 갚았어요',
-      contents: '너무 신나요',
+      contents: '너무 신나요!!!',
     });
   };
   const onClickFetch = async () => {
