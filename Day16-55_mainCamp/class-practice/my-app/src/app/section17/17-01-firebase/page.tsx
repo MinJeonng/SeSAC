@@ -24,7 +24,7 @@ export default function FirebasePage() {
   };
 
   // Firebase 순서
-  // 1. 프로젝트 만들기 2. 접속정보 복사해오기 3. firestore 데이터베이스 생성하기
+  // 1. 프로젝트 만들기 2. 접속정보 복사해오기 3. firestore 데이터베이스 생성하기(직접 생성, 로컬에서 생성 모두 가능)
   //realtime firebase가 채팅관련
   return (
     <>
