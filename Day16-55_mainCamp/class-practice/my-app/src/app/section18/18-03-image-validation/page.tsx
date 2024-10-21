@@ -1,6 +1,8 @@
 'use client';
 
+import { CheckValidationFile } from '@/commons/utils/18-03-image-validation-file';
 import { gql, useMutation } from '@apollo/client';
+import { Modal } from 'antd';
 import Image from 'next/image';
 import { ChangeEvent, useRef, useState } from 'react';
 
@@ -22,6 +24,13 @@ export default function ImageUploadPage() {
     // 배열로 들어오는 이유 : <input type = "file" multiple/> 일때, 여러개 드래그 가능
     const selectedFile = e.target.files?.[0];
     console.log(selectedFile);
+
+    // 파일 선택되지 않았을때 로직 처리
+    if (!selectedFile) return;
+
+    // 많이 쓰이는 로직이니까 함수로 뺌
+    const isValid = CheckValidationFile(selectedFile);
+    if (!isValid) return; //여기서 return해서 함수 종료할때 여기서 종료되는건 onChangeFile이 됌
 
     const result = await uploadFile({
       variables: { file: selectedFile },
@@ -53,6 +62,9 @@ export default function ImageUploadPage() {
         onChange={onChangeFile}
         multiple
         style={{ display: 'none' }}
+        // accept를 통해 아예 이 외에는 선택안되게 할 수 있음
+        // jpeg = jpg 동일한 뜻
+        accept="image/jpeg, image/png"
       />
       <Image
         src={`https://storage.googleapis.com/${imageUrl}`}

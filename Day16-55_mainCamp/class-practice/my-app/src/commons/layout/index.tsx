@@ -6,7 +6,6 @@ import Banner from './banner';
 import Footer from './footer';
 import Header from './header';
 import Navigation from './navigation';
-import { PropsWithChildren } from 'react';
 
 // 절대 안바뀌고 한번 만들어두면 그대로 가져다 쓰게 되면 컴포넌트 바깥에다가 씀
 const HIDDEN_HEADERS = [
@@ -34,7 +33,11 @@ export default function LayoutComponent({ children }: QQQ) {
       <Banner />
       <Navigation />
       <div style={{ height: '300px', display: 'flex' }}>
-        <div style={{ width: '30%', backgroundColor: 'orange' }}>사이드바</div>
+        <div
+          style={{ width: '30%', backgroundColor: 'orange', height: 'auto' }}
+        >
+          사이드바
+        </div>
         <div style={{ width: '70%' }}>{children}</div>
       </div>
       <Footer></Footer>
