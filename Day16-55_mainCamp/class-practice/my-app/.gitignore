@@ -35,4 +35,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/commons/libraries/17-01-firebase.ts
+17-01-firebase.ts
