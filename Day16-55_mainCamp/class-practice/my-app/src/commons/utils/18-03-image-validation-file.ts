@@ -1,6 +1,14 @@
 import { Modal } from 'antd';
 
-const CheckValidationFile = (selectedFile) => {
+const CheckValidationFile = (selectedFile?: File) => {
+  // 파일 선택되지 않았을때 로직 처리
+  if (typeof selectedFile === 'undefined') {
+    Modal.error({
+      title: '오류',
+      content: '파일이 없습니다.',
+    });
+    return;
+  }
   //백엔드에서 로직처리를 해야하지만, 불필요한 서버가 왔다갔다 너무 많으니까 그전에 프론트에서 막자
   if (selectedFile.size > 1024 * 1024 * 5) {
     Modal.warn({

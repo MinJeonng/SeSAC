@@ -13,17 +13,18 @@ const UPLOAD_FILE = gql`
   }
 `;
 
-const CREATE_BOARD = gql`
-  mutation createBoard($createBoardInput: CreateBoardInput!) {
-    createBoard(createBoardInput: $createBoardInput) {
-      _id
-      writer
-      title
-      contents
-      images
-    }
-  }
-`;
+// 나중에 codegen할때 이름 같으면 문제 생길 수도 있으니까
+// const CREATE_BOARD_IMAGE = gql`
+//   mutation createBoardWithImage($createBoardInput: CreateBoardInput!) {
+//     createBoardWithImage(createBoardInput: $createBoardInput) {
+//       _id
+//       writer
+//       title
+//       contents
+//       images
+//     }
+//   }
+// `;
 
 export default function ImageUploadPage() {
   const [uploadFile] = useMutation(UPLOAD_FILE);
@@ -36,9 +37,6 @@ export default function ImageUploadPage() {
     const selectedFile = e.target.files?.[0];
     console.log(selectedFile);
 
-    // 파일 선택되지 않았을때 로직 처리
-    if (!selectedFile) return;
-
     // 많이 쓰이는 로직이니까 함수로 뺌
     const isValid = CheckValidationFile(selectedFile);
     if (!isValid) return; //여기서 return해서 함수 종료할때 여기서 종료되는건 onChangeFile이 됌
@@ -48,7 +46,7 @@ export default function ImageUploadPage() {
     });
     console.log(result.data.uploadFile.url, 'url');
 
-    setImageUrl(result.data.uploadFile.url);
+    setImageUrl(result.data.uploadFile.url ?? '');
   };
 
   const onClickImg = () => {
@@ -61,7 +59,7 @@ export default function ImageUploadPage() {
   const [title, setTitle] = useState('');
   const [contents, setContents] = useState('');
 
-  const [myFunction] = useMutation(CREATE_BOARD);
+  const [myFunction] = useMutation(CREATE_BOARD_IMAGE);
   const onClickSubmit = async () => {
     //여기서 그래프큐엘 요청하기
     const result = await myFunction({
