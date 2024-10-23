@@ -1,0 +1,114 @@
+<!-- 
+ 이 순서로 해서 진행
+`http://numbersapi.com/random?min=1&max=200`
+`https://koreanjson.com/posts/${num}`
+`https://koreanjson.com/posts?userId=${userId}`
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>callback, promise, async-await</title>
+
+    <script>
+      // async/await, promise, callback 차이점
+      // async/await: async function 안에서 return, throw, await 사용
+      // promise: then, catch, finally, resolve, reject 사용(이것들이 promise를 지원하는 기능)
+      // callback: function(err, data) {}
+
+      // function addEventListener(aaa,bbb){
+      // 셋팅된 api 주소로 요청이 됐다고 끝났다고 가정
+      // const res = 70; 셋팅된 API 주소에서 받아온 결과
+      // bbb(res)
+      //}
+      const onClickCallback = () => {
+        // 이게 콜백 지옥(계속 들어가고 들어가고...)
+        // 이거 할때 재밌는 그림 찾아서
+
+        const aa = new XMLHttpRequest();
+        aa.open('GET', 'http://numbersapi.com/random?min=1&max=200');
+        aa.send();
+        aa.addEventListener('load', (res) => {
+          console.log(res, 'API 요청결과');
+          const num = res.target.response.split(' ')[0]; // 랜덤숫자만 받을 수 있음
+          console.log(num, '랜덤으로 받은 숫자');
+
+          const bb = new XMLHttpRequest();
+          bb.open('GET', `https://koreanjson.com/posts/${num}`);
+          bb.send();
+          bb.addEventListener('load', (res) => {
+            console.log(res, 'API 게시글 요청결과');
+            const user = JSON.parse(res.target.response).UserId; // 작성자 ID , 문자열을 객체로
+
+            const cc = new XMLHttpRequest();
+            cc.open('GET', `https://koreanjson.com/posts?userId=${user}`);
+            cc.send();
+            cc.addEventListener('load', (res) => {
+              console.log(res, 'API 작성자 요청결과');
+              const userPosts = JSON.parse(res.target.response); // 작성자의 정보를 알게됌
+              console.log(userPosts, '유저가 쓴 다른 게시글'); // 배열 형태
+            });
+          });
+        });
+      };
+
+      //promise를 지원하는 기능 : then을 사용
+      // 콜백 지옥에서 빠져나올 수 있었음
+      // 프로미스 체이닝 : 실행순서를 예측하기가 어려움, 유지보수 어렵고 개발하는데 시간 오래걸림
+      const onClickPromise = () => {
+        console.log('첫번째로 실행');
+        fetch(`http://numbersapi.com/random?min=1&max=200`)
+          .then((response) => response.text())
+          .then((responseText) => {
+            console.log('두번째로 실행');
+            const num = responseText.split(' ')[0]; //랜덤숫자
+
+            return fetch(`https://koreanjson.com/posts/${num}`); // 다음 API 요청, 여기에서 요청한 결과를 밑의 then에서 받음
+          })
+          .then((res) => res.json())
+          .then((responseText) => {
+            console.log('세번째로 실행');
+            const userId = responseText.UserId; // 작성자ID
+
+            return fetch(`https://koreanjson.com/posts?userId=${userId}`);
+          })
+          .then((res) => res.json())
+          .then((responseText) => {
+            console.log('네번째로 실행');
+            console.log(responseText);
+          });
+        console.log('다섯번째로 실행');
+
+        // 콘솔을 보면 1-5-2-3-4 순으로 실행된다.
+        // 왜냐면 첫번째 api를 받아오는데까지의 시간이 걸리니까 다섯번쨰가 먼저 뜨게 되는것
+        // 직관적으로 실행이 되지 않는다는 문제
+        // 그래서 비동기를 사용해서 순차적으로 실행되게끔
+      };
+
+      // fetch, axios  : 대표적으로 promise를 지원하는 기능임
+      // fetch, axios 등을 기다리는 2가지 방법 (promise를 기다리는 방법 !!)
+      // 1. .then() 사용
+      // 2. await 활용 => 주의!!!-> await은 아무때나 붙인다고 뒤에껄 기다리는게 아님!!!!
+      const onClickAsyncAwait = async () => {
+        const res1 = await fetch(`http://numbersapi.com/random?min=1&max=200`);
+        const text1 = await res1.text();
+        const num = text1.split(' ')[0];
+
+        const res2 = await fetch(`https://koreanjson.com/posts/${num}`);
+        const text2 = await res2.json();
+        const userId = text2.UserId;
+
+        const res3 = await fetch(
+          `https://koreanjson.com/posts?userId=${userId}`
+        );
+        const text3 = await res3.json();
+        console.log(text3, '결과');
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="onClickCallback()">Callback 연습하기</button>
+    <button onclick="onClickPromise()">promise 연습하기</button>
+    <button onclick="onClickAsyncAwait()">AsyncAwait 연습하기</button>
+  </body>
+</html>
