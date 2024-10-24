@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>promise 연습</title>
+    <script>
+      const onClickThen = () => {
+        // promise((성공했을떄 실행시키는 함수, 실패했을떄 실행시키는 함수))
+        new Promise((successFunc, errorFunc) => {
+          try {
+            setTimeout(() => {
+              const res = '강아지.jpg'; //2초가 걸려서 백엔드에서 강아지 이미지 받아옴
+              successFunc(res); //성공하면 이거 실행
+            }, 2000);
+          } catch (error) {
+            errorFunc(error); // 실패하면 이거 실행
+          }
+        })
+          .then((result) => {
+            // .then 안으로 res가 쏙 들어가게 된다.
+            // 2초 있다가 받을 수 있음
+            console.log(result); //강아지.jpg
+          })
+          .catch((error) => {
+            // 여기도 콜백함수의 에러여서 매개변수 이름 아무거나 써도 상관없음
+            console.log(error); //실패
+          });
+      };
+      const onClickAwait = async () => {
+        const result = await new Promise((successFunc, errorFunc) => {
+          try {
+            setTimeout(() => {
+              const res = '강아지.jpg'; //2초가 걸려서 백엔드에서 강아지 이미지 받아옴
+              successFunc(res); //성공하면 이거 실행
+            }, 2000);
+          } catch (error) {
+            errorFunc(error); // 실패하면 이거 실행
+          }
+        });
+        console.log(result);
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="onClickThen()">promise 실행하기(.then)</button>
+    <button onclick="onClickAwait()">promise 실행하기(await)</button>
+  </body>
+</html>
