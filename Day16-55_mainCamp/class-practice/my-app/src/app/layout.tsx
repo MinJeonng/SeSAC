@@ -4,6 +4,7 @@ import './globals.css';
 import ApolloSetting from '@/commons/settings/14-01-apollo-setting';
 import LayoutComponent from '@/commons/layout';
 import ApolloUploadSetting from '@/commons/settings/18-01-apollo-upload-setting';
+import ApolloHeaderSetting from '@/commons/settings/22-01-apollo-header-setting';
 
 // 원하는 부분은 이 폰트 지정
 //100~900까지 모두 지원한다는 의미
@@ -36,9 +37,11 @@ export default function RootLayout({ children }: IProps) {
       {/* 즉, layout.tsx는 props로 받은 컴포넌트를 감싸고 있는 것 ! */}
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div>======여기까지는 헤더입니다/======</div>
-        <ApolloUploadSetting>
+        {/* <ApolloUploadSetting> */}
+        <ApolloHeaderSetting>
           <LayoutComponent>{children}</LayoutComponent>
-        </ApolloUploadSetting>
+        </ApolloHeaderSetting>
+        {/* </ApolloUploadSetting> */}
         <div>======여기까지는 푸터입니다/======</div>
       </body>
     </html>
