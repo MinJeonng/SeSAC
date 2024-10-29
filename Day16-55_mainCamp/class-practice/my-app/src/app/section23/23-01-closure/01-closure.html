@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script>
+      function aaa() {
+        const apple = 10;
+
+        function bbb() {
+          const banana = 20;
+          console.log(banana);
+          console.log(apple); //스코프 체인으로 위의 함수에서 값 가져옴
+          console.log(qqq);
+        }
+        const qqq = 3;
+
+        bbb();
+      }
+      aaa();
+    </script>
+  </head>
+  <body></body>
+</html>
