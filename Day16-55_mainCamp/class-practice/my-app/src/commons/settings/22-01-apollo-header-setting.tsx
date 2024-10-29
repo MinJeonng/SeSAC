@@ -20,7 +20,7 @@ export default function ApolloHeaderSetting(props: IApolloSetting) {
     uri: 'http://main-practice.codebootcamp.co.kr/graphql', //업로드가 가능한 uri
     headers: { Authorization: `Bearer ${accessToken}` }, // 토큰저장
   });
-  console.log('현재 저장된 토큰', accessToken);
+  // console.log('현재 저장된 토큰', accessToken);
   const client = new ApolloClient({
     link: ApolloLink.from([uploadLink]),
     // cache: new InMemoryCache(), => accessToken이 변경되어서 리렌더 될때 새로 만들어짐 -> 그러면 캐시 삭제
