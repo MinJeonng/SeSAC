@@ -41,11 +41,10 @@ export default function LoginPage() {
         const accessToken = result.data.loginUser.accessToken;
         // 2. 받아온 token을 globalstate에 저장하기
         setAccessToken(accessToken); // globalState에 token set하기
-
         localStorage.setItem('accessToken', accessToken);
         console.log(accessToken, 'token 값');
         //3. 성공페이지 이동
-        router.push('/section22/22-02-login-localStorage-success');
+        router.push('/section22/22-03-login-localStorage-success-check');
       } else {
         console.log('토큰없음. 로그인실패');
         alert('로그인 실패');

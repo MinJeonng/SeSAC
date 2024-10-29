@@ -18,6 +18,10 @@ interface IApolloSetting {
 export default function ApolloHeaderSettingLocalStorage(props: IApolloSetting) {
   const { accessToken, setAccessToken } = useAccessTokenStore(); //global access token
 
+  //서버에서 그려질땐 localStorage가 없으니까 이걸 넘겼을때 문제가 생길 수 있으니까 apollo부분에 추가한 것
+  // 즉, 성공한 부분으로 넘어가고 새로고침하면 localStorage에 token이 서버에서 그려질때 없으니까
+  // 이름을 받아올 수 없어서 아래를 작성함
+
   // 아래 세개가 프리렌더링과 브라우저의 경계? 를 확인하는 예제인 것. 어디서부터 어디까지인지 확인하기위함
   //1. 프리렌더링(빨리 한번 그림을 그려보는걸 의미) 예제 - process.browser
   // if (process.browser) {
