@@ -1,32 +1,18 @@
 'use client';
-import { gql, useMutation } from '@apollo/client';
-import { ChangeEvent, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { schema } from './schema';
 
-// 변수를 입력해서 하려면 타입을 지정해줘야함
+//1. zod 설치
+//2. type을 적어주는 schema.ts를 만들어줘야함
 
-/*
-const setting = gql`
-  // mutation createBoard(
-  //   # 타입 적는 곳
-  //   $myWriter: String
-  //   $myTitle: String
-  //   $myContents: String
-  // ) {
-  //   # 전달할 변수 적는 곳
-  //   createBoard(writer: $myWriter, title: $myTitle, contents: $myContents) {
-  //     number
-  //     message
-  //   }
-  // }
-`;
-*/
-
-//값을 state에 넣어보자
 export default function GraphqlMutationPage() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState } = useForm({
+    resolver: zodResolver(schema),
+    // onChange 될때마다 검사해줘
+    mode: 'onChange',
+  });
 
-  // const [myFunction] = useMutation(setting);
   const onClickSubmit = async (data) => {
     console.log(data);
     // const result = await myFunction({
@@ -39,20 +25,23 @@ export default function GraphqlMutationPage() {
     // });
     // console.log(result);
   };
-  console.log('리렌더링 되나요?'); // 이 친구는 리렌더링 안되는걸 확인할 수 있음, 즉 state가 바뀌고 계속 컴포넌트가 재실행되는데 비제어 방식이기에 이게 아닌 것
+  console.log('리렌더링 되나요?');
 
-  //{...register('writer')} => 이렇게 하는 순간 const [writer,setWriter] = useState() 도 되는거고, onChange도 되는 것
   return (
     <form onSubmit={handleSubmit(onClickSubmit)}>
       작성자 : <input type="text" {...register('writer')} /> <br />
+      <p style={{ color: 'red' }}>{formState.errors.writer?.message}</p>
       제목 : <input type="text" {...register('title')} />
+      <p style={{ color: 'red' }}>{formState.errors.title?.message}</p>
       <br />
       내용 : <input type="text" {...register('contents')} />
+      <p style={{ color: 'red' }}>{formState.errors.contents?.message}</p>
       <br />
-      {/* 주소 같은 경우 객체 안에 있기때문에 이렇게 아래처럼 boardAddress 안에 ~~다 이렇게 지정해주면됌 */}
-      주소 : <input type="text" {...register('boardAddress.addressDetail')} />
+      {/* 주소 : <input type="text" {...register('boardAddress.addressDetail')} /> */}
       <br />
-      <button>GraphQL-API 요청하기</button>
+      {/* 위의 formstate 안에 error가 없으면 active되게 할 수 있음 */}
+      {/* 내가 뼈빠지게 한거 없어도 되니ㅡㄴ거....하하하하하 */}
+      <button disabled={!formState.isValid}>GraphQL-API 요청하기</button>
     </form>
   );
 }
