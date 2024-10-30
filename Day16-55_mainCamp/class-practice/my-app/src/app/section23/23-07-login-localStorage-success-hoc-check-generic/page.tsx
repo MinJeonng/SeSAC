@@ -1,5 +1,5 @@
 'use client';
-import { withLoginCheck } from '@/commons/hocs/23-04-with-loginCheck';
+import { withLoginCheck } from '@/commons/hocs/23-07-with-loginCheck-generic';
 import { gql, useQuery } from '@apollo/client';
 
 const FETCH_USER_LOGGED_IN = gql`

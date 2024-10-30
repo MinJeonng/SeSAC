@@ -44,7 +44,9 @@ export default function LoginPage() {
         localStorage.setItem('accessToken', accessToken);
         console.log(accessToken, 'token 값');
         //3. 성공페이지 이동
-        router.push('/section23/23-04-login-localStorage-success-hoc-check');
+        router.push(
+          '/section23/23-07-login-localStorage-success-hoc-check-generic'
+        );
       } else {
         console.log('토큰없음. 로그인실패');
         alert('로그인 실패');
