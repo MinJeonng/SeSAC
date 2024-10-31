@@ -4,6 +4,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { IMyUpdateType, schema } from './schema';
 import MyInPut from '@/commons/ui/25-01-input';
 import MyButton from '@/commons/ui/25-01-button';
+import { ButtonSoftMFull } from '@/commons/ui/25-02-button-base';
+import InputSoftSFull from '@/commons/ui/25-02-input-base';
 
 //1. zod 설치
 //2. type을 적어주는 schema.ts를 만들어줘야함
@@ -27,21 +29,21 @@ export default function GraphqlMutationPage() {
     // });
     // console.log(result);
   };
-  console.log('리렌더링 되나요?');
+  // console.log('리렌더링 되나요?');
 
   return (
     // 감싸지게 되면 안에 자식들이 register, formstate 등 모두 다 공유가능하다!!
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onClickSubmit)}>
         {/* 제목 : <input type="text" {...register('title')} /> */}
-        제목 : <MyInPut type="text" keyname="title" />
+        제목 : <InputSoftSFull type="text" keyname="title" />
         {/* 에러같은 경우도 컴포넌트로 뺄 수 있음 */}
         <p style={{ color: 'red' }}>
           {methods.formState.errors.title?.message}
         </p>
         <br />
         {/* 내용 : <input type="text" {...register('contents')} /> */}
-        내용 : <MyInPut type="text" keyname="contents" />
+        내용 : <InputSoftSFull type="text" keyname="contents" />
         <p style={{ color: 'red' }}>
           {methods.formState.errors.contents?.message}
         </p>
@@ -49,7 +51,7 @@ export default function GraphqlMutationPage() {
         {/* <button disabled={!methods.formState.isValid}>
           GraphQL-API 요청하기
         </button> */}
-        <MyButton>GraphQL-API 요청하기</MyButton>
+        <ButtonSoftMFull>GraphQL-API 요청하기</ButtonSoftMFull>
       </form>
     </FormProvider>
   );
