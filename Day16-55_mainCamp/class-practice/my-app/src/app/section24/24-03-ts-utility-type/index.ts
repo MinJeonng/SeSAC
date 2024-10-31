@@ -24,7 +24,7 @@ type eee = '짱구' | '짱아' | '유리'; // Union 타입, 타입을 좁혀들�
 const child1: eee = '지지'; //'"지지"' 형식은 'eee' 형식에 할당할 수 없습니다. -> 이렇게 에러가 뜸 , 즉 eee 타입을 쓰고싶으면 그 안에 값들만 사용 가능
 
 type fff = Record<eee, number>; //eee가 key고 number가 value 인 객체를 생성
-type fff = Record<eee, IProfile>; // 밑에처럼 key, value 형태로 값이 저장
+type ttt = Record<eee, IProfile>; // 밑에처럼 key, value 형태로 값이 저장
 /*
 type fff = {
     짱구: IProfile;

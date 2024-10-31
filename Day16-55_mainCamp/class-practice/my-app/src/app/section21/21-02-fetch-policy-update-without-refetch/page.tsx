@@ -4,7 +4,7 @@ import { gql, useMutation, useQuery } from '@apollo/client';
 
 // 게시글 조회하기
 const FETCH_BOARDS = gql`
-  query fetchBoards {
+  query fetchBoards4 {
     fetchBoards {
       _id
       writer

@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 // 게시글 조회하기
 const FETCH_BOARDS = gql`
-  query fetchBoards {
+  query fetchBoards1 {
     fetchBoards {
       _id
       writer
