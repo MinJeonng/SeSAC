@@ -25,8 +25,7 @@ export default function GraphqlMutationPage() {
       <form onSubmit={methods.handleSubmit(onClickSubmit)}>
         {/* 제목(함수) :
         {InputSoftSFull<IMyUpdateType>({ type: 'text', keyname: 'title' })} */}
-        제목(컴포넌트)
-        :Day16-55_mainCamp/class-practice/my-app/src/app/section25/25-03-common-component-base-ts-generic-1{' '}
+        제목(컴포넌트) :
         <InputSoftSFull<IMyUpdateType> type="text" keyname="title" />
         {/* 에러같은 경우도 컴포넌트로 뺄 수 있음 */}
         <p style={{ color: 'red' }}>
