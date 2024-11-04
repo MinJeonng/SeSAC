@@ -6,6 +6,7 @@ import LayoutComponent from '@/commons/layout';
 import ApolloUploadSetting from '@/commons/settings/18-01-apollo-upload-setting';
 import ApolloHeaderSetting from '@/commons/settings/22-01-apollo-header-setting';
 import ApolloHeaderSettingLocalStorage from '@/commons/settings/22-02-apollo-header-setting-localstorage';
+import ApolloHeaderAndErrorSetting from '@/commons/settings/26-02-apollo-header-and-error-setting-refresh';
 
 // 원하는 부분은 이 폰트 지정
 //100~900까지 모두 지원한다는 의미
@@ -40,9 +41,13 @@ export default function RootLayout({ children }: IProps) {
         <div>======여기까지는 헤더입니다/======</div>
         {/* <ApolloUploadSetting> */}
         {/* <ApolloHeaderSetting> */}
-        <ApolloHeaderSettingLocalStorage>
+        {/* <ApolloHeaderSettingLocalStorage> */}
+
+        <ApolloHeaderAndErrorSetting>
           <LayoutComponent>{children}</LayoutComponent>
-        </ApolloHeaderSettingLocalStorage>
+        </ApolloHeaderAndErrorSetting>
+
+        {/* </ApolloHeaderSettingLocalStorage> */}
         {/* </ApolloHeaderSetting> */}
         {/* </ApolloUploadSetting> */}
         <div>======여기까지는 푸터입니다/======</div>
