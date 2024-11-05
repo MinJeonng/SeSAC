@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      const onClickBtn = () => {
+        console.log('시작!!'); //1
+        setTimeout(() => {
+          console.log('0초뒤에 실행'); //3
+        }, 0);
+
+        let sum = 0;
+        for (let i = 0; i <= 90000000; i++) {
+          sum += sum;
+        }
+        console.log('끝'); //2
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="onClickBtn()">시작</button>
+  </body>
+</html>

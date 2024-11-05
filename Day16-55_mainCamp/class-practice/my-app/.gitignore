@@ -36,3 +36,5 @@ yarn-error.log*
 next-env.d.ts
 
 17-01-firebase.ts
+/src/app/section27/27-01-payment/page.tsx
+
