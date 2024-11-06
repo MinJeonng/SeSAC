@@ -4,8 +4,8 @@ import { gql, useMutation } from '@apollo/client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-const LOGIN_USER_EXAMPLE = gql`
-  mutation loginUserExample($email: String!, $password: String!) {
+const LOGIN_USER = gql`
+  mutation loginUser($email: String!, $password: String!) {
     loginUserExample(email: $email, password: $password) {
       accessToken
     }
@@ -14,7 +14,7 @@ const LOGIN_USER_EXAMPLE = gql`
 
 export default function LoginPage() {
   const router = useRouter();
-  const [loginUserExample] = useMutation(LOGIN_USER_EXAMPLE);
+  const [loginUser] = useMutation(LOGIN_USER);
   const [formState, setFormState] = useState({
     email: '',
     password: '',
@@ -27,7 +27,7 @@ export default function LoginPage() {
 
     console.log('result 하고');
     try {
-      const result = await loginUserExample({
+      const result = await loginUser({
         variables: { email, password },
         // 여기선 회원가입이 없으니까 일단 값 일시적으로 넣어주기
         // variables: {

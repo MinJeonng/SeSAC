@@ -11,7 +11,7 @@ const RESTORE_ACCESS_TOKEN = gql`
 export const getAccessToken = async () => {
   try {
     const graphqlClient = new GraphQLClient(
-      'https://main-practice.codebootcamp.co.kr/graphq',
+      'https://main-practice.codebootcamp.co.kr/graphql',
       { credentials: 'include' }
     );
     // accessToken 던져서 refreshToken 받음

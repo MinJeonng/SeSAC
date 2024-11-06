@@ -1,6 +1,5 @@
 'use client';
-import { withLoginCheck } from '@/commons/hocs/23-07-with-loginCheck-generic';
-import { gql, useApolloClient, useLazyQuery, useQuery } from '@apollo/client';
+import { gql, useApolloClient } from '@apollo/client';
 
 const FETCH_USER_LOGGED_IN = gql`
   query fetchUserLoggedIn {
@@ -13,7 +12,7 @@ const FETCH_USER_LOGGED_IN = gql`
 `;
 //1. button눌러서 api받아오기 -> 버튼 눌러서 uerQuery 실행하기
 //2. 토큰만료 실패 실습 -> loginUserExample 사용하면 됌
-// 아폴로 셋팅 => 1,2,3단계 추가
+
 function LoginSuccessPage() {
   //1. 페이지 접속하면 자동으로 data에 받아지고(data는 글로벌스테이트에 저장) 리렌더링됌
   //const { data } = useQuery(FETCH_USER_LOGGED_IN);
@@ -21,7 +20,7 @@ function LoginSuccessPage() {
   //2. myFunc을 실행시 data에 받아지고 글로벌 스테이트에 저장되고 리렌더링 된다.
   //const [myFunc, { data }] = useLazyQuery(FETCH_USER_LOGGED_IN);
 
-  //3. fetch 처럼 사용하는 방법(결과는 글로벌 스테이트에 저장)
+  //3. fetch 처럼 사용하는 방법(결과는 글로벌 스테이트에 저장) 아래에서 쓴 방법
   // const client = useApolloClient();
   // client.query({
   //   query: FETCH_USER_LOGGED_IN,
@@ -30,6 +29,8 @@ function LoginSuccessPage() {
   const client = useApolloClient();
   const onClickContact = async () => {
     // 이 곳에서 api 요청 , 5초 뒤 받아올 수 있게
+
+    // 함수안에서 hooks쓰는건 안된다.
     const result = await client.query({
       query: FETCH_USER_LOGGED_IN,
     });

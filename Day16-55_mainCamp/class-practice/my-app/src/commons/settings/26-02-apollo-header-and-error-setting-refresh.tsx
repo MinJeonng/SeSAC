@@ -25,7 +25,8 @@ export default function ApolloHeaderAndErrorSettingRefresh(
   const { accessToken, setAccessToken } = useAccessTokenStore(); //global access token
   const { setIsLoaded } = useLoadStore();
 
-  //프리렌더링 무시
+  // 프론트 서버에서 그려지고 다시한번 브라우저에서 그려지는데 그때 어디서 그려지는지 확인하는 방법 중 하나
+  //프리렌더링 무시 -> 이건 프론트 서버에선 실행 안되고 브라우저에서만 실행된다.
   useEffect(() => {
     //3-1. refreshToken 방식
     getAccessToken()
@@ -33,7 +34,7 @@ export default function ApolloHeaderAndErrorSettingRefresh(
         // accessToken 재발급
         if (newAccessToken) setAccessToken(newAccessToken);
       })
-      .finally(setIsLoaded);
+      .finally(setIsLoaded); //성공하든 실패하든 일단 로딩 끝
   }, []);
 
   const errorLink = onError(({ graphQLErrors, operation, forward }) => {

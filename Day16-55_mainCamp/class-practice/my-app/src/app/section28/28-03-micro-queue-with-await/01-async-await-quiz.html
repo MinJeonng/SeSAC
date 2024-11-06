@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      function onClickLoop() {
+        console.log('====시작====');
+
+        function aaa() {
+          console.log('aaa-시작');
+          bbb();
+          console.log('aaa-끝');
+        }
+
+        // async를 붙이면 Promise가 된다.
+        // await 짱구의 위치를 기억한 상태로 마이크로큐에 들어간다.(await을 붙여야 promise가 마이크로큐에 빠짐)
+        // 그 다음에 '끝'까지 나오고 마이크로큐가 나와서 짱구가 friend에 들어오게 되고 맨 마지막에 찍힘
+        async function bbb() {
+          console.log('bbb-시작');
+          const friend = await '짱구';
+          console.log(friend);
+        }
+
+        aaa();
+
+        console.log('=====끝=====');
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="onClickLoop()">퀴즈시작</button>
+  </body>
+</html>
