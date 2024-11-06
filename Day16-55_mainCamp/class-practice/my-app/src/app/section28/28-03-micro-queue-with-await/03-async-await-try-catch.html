@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      const onClickBtn = () => {
+        try {
+          fetch('https://qqqq.com'); //fetch는 기다려야 하니까 마이크로큐에 들어감
+          console.log('짱아'); // 그러고 이게 찍히고 try가 끝나서 에러가 없다고 판단한 것. catch가 못잡음
+        } catch (err) {
+          console.log('에러가 발생');
+        }
+      };
+      // 마이크로큐에 fetch, onClickAwaitBtn 이 둘다들어가고(onClickAwaitBtn도 await가 붙어있어서 promise되니까 마이크로큐에 들어가게 되는 것) fetch가 끝날때까지 onClickAwaitBtn 함수는 실행이 안되니까
+      // 그래서 catch문에서 에러가 잡히는 것!
+      const onClickAwaitBtn = async () => {
+        try {
+          await fetch('https://qqqq.com'); //
+          console.log('유리(await)');
+        } catch (err) {
+          console.log('에러가 발생');
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="onClickBtn()">await 없이 요청하기</button>
+    <button onclick="onClickAwaitBtn()">await 함께요청하기</button>
+  </body>
+</html>

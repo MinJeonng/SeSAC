@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      function onClickLoop() {
+        console.log('====시작====');
+
+        function aaa() {
+          console.log('aaa-시작');
+          bbb();
+          console.log('aaa-끝');
+        }
+
+        //promise가 되면서 마이크로큐에 들어가게 됌 -> ===끝===까지 찍히고 마이크로큐에 들어간게 콜스택으로 빠짐(짱아랑 bbb-끝)
+        async function bbb() {
+          console.log('bbb-시작');
+          await ccc(); //이때 ccc()이게 먼저 실행되고 await을 만나서 await이 실행되는 것
+          console.log('bbb-끝');
+        }
+
+        async function ccc() {
+          console.log('ccc-시작');
+          const friend = await '짱아';
+          console.log(friend);
+        }
+
+        aaa();
+
+        console.log('=====끝=====');
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="onClickLoop()">퀴즈시작</button>
+  </body>
+</html>
