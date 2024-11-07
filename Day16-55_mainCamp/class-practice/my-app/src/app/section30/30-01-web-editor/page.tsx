@@ -15,7 +15,7 @@ export default function WebEditorPage() {
     console.log(textValue);
   };
 
-  // 백그라운드에서 몰래 받기도 가능. 왜냐면 등록하기때 modal을 받아오면 등록하기 자체가 좀 느려질 수ㅗ 잇어서 하지만 useEffect하려면 전역으로 빼든 그래야함..
+  // 백그라운드에서 몰래 받기도 가능. 왜냐면 등록하기때 modal을 받아오면 등록하기 자체가 좀 느려질 수도 잇어서 하지만 useEffect하려면 전역으로 빼든 그래야함..
   // useEffect(()=>{
   //   const { Modal } = await import('antd');
   // })
