@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const LOGIN_USER = gql`
   mutation loginUser($email: String!, $password: String!) {
-    loginUserExample(email: $email, password: $password) {
+    loginUser(email: $email, password: $password) {
       accessToken
     }
   }
@@ -37,8 +37,8 @@ export default function LoginPage() {
       });
       console.log(result, '로그인 결과');
 
-      if (result?.data?.loginUserExample?.accessToken) {
-        const accessToken = result.data.loginUserExample.accessToken;
+      if (result?.data?.loginUser?.accessToken) {
+        const accessToken = result.data.loginUser.accessToken;
 
         // 2. 받아온 token을 globalstate에 저장하기
         setAccessToken(accessToken); // globalState에 token set하기

@@ -2,6 +2,8 @@
 import { withLoginCheck } from '@/commons/hocs/26-02-with-loginCheck-generic-refresh';
 import { gql, useApolloClient, useLazyQuery, useQuery } from '@apollo/client';
 
+// 사용자가 버튼을 클릭할 때 로그인된 사용자 정보를 가져오는 기능
+
 const FETCH_USER_LOGGED_IN = gql`
   query fetchUserLoggedIn {
     fetchUserLoggedIn {
