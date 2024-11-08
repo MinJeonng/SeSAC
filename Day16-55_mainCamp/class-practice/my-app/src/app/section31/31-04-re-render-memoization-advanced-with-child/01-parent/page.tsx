@@ -46,7 +46,7 @@ export default function ReRenderPage() {
       <ChildPage />
 
       {/* 자식에 memo했어도 , props로 넘어가면 rerender됌 */}
-      <ChildPage qqq={countState} />
+      {/* <ChildPage qqq={countState} /> */}
     </>
   );
 }

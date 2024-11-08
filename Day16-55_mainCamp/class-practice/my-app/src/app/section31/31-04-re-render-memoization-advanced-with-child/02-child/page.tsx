@@ -13,4 +13,5 @@ function ChildPage(props) {
   );
 }
 // memo 로 인해 부모컴포넌트가 렌더링되어도 자식은 rerender안되게
-export default memo(ChildPage);
+// export default memo(ChildPage);
+export default ChildPage;
