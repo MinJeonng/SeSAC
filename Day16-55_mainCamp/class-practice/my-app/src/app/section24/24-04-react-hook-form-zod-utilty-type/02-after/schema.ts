@@ -4,7 +4,7 @@ import * as z from 'zod';
 //1. 내가 만든 z.object로 타입 뽑아내기
 type myschema = z.infer<typeof schema>;
 
-//2-1. 이미 타입이 있는 경우, 이 타입을 적용하여 schema 만들기
+//2-1. 이미 타입이 있는 경우, 이 타입을 적용하여 schema 만들기,
 interface IMySchema {
   writer: string;
   title: string;
