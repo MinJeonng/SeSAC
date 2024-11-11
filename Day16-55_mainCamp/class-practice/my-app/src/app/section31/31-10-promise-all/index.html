@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>다중업로드</title>
+    <script>
+      // promise 연습
+      const startPromise = async () => {
+        //promise 성공하면 resolve,실패하면 reject
+        const result1 = await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve('ok');
+          }, 2000);
+        });
+        const result2 = await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve('okk');
+          }, 4000);
+        });
+        const result3 = await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve('okkkk');
+          }, 1000);
+        });
+        const results = [result1, result2, result3];
+        console.log(results);
+        // 이러고 createBoard
+      };
+      //promise all 연습
+      const startPromiseAll = () => {};
+    </script>
+  </head>
+  <body>
+    <button onclick="startPromise()">Promise 연습</button>
+    <button onclick="startPromiseAll()">Promise.all 연습</button>
+  </body>
+</html>
