@@ -27,7 +27,7 @@ export default function ImageUploadPage() {
   const [uploadFile] = useMutation(UPLOAD_FILE);
   const [createBoard] = useMutation(CREATE_BOARD);
   const [imageUrl, setImageUrl] = useState('');
-  const [file, setFile] = useState('');
+  const [file, setFile] = useState();
 
   const onChangeFile = async (e) => {
     const selectedFile = e.target.files[0];
@@ -42,8 +42,8 @@ export default function ImageUploadPage() {
     // setImageUrl(result.data.uploadFile.url);
 
     //1. 임시URL 생성 -> 가짜url -> 내 브라우저에서만 접근 가능
-    const previewResult = URL.createObjectURL(selectedFile);
-    console.log(previewResult);
+    // const previewResult = URL.createObjectURL(selectedFile);
+    // console.log(previewResult);
 
     //2. 임시 URL 생성 -> 진짜url-> 다른 브라우저에서도 접근 가능, 하지만 용량이 큼
     const fileReader = new FileReader();
@@ -51,7 +51,7 @@ export default function ImageUploadPage() {
     fileReader.onload = (e) => {
       console.log(e.target?.result); //문자열로 바뀐 결과
       if (typeof e.target?.result === 'string') {
-        setImageUrl(e.target?.result as string);
+        setImageUrl(e.target?.result);
         setFile(selectedFile); // 여기서 넘겨주는 file을 밑에서 받음(onClickSubmit에)
       }
     };
