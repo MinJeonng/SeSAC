@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>프리로드 실습</title>
+    <!-- 기본적으로 한번에 다운로드 여러개씩 받아오는데, body태그의 이미지는 가장 나중에 다운로드 받게됌
+    해당 이미지를 먼저 받고싶으먄 , 파일 프리로드 
+    -->
+    <!-- 순서 상관없이 이미지를 먼저 받음 + 
+    as : 이건 이미지로 받을거야
+    rel :preload 해서 받아올거야 
+    -->
+    <link href="./하쿠.jpeg" rel="preload" as="image" />
+    <!-- 라이브서버에서 disable-cache 체크하고! 테스트 -->
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./index1.js"></script>
+    <script src="./index2.js"></script>
+    <script src="./index3.js"></script>
+    <script src="./index4.js"></script>
+    <script src="./index5.js"></script>
+    <script src="./index6.js"></script>
+  </head>
+  <body>
+    <img src="./하쿠.jpeg" alt="" />
+  </body>
+</html>
