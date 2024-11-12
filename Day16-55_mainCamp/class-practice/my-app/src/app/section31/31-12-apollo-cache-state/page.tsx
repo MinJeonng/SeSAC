@@ -47,6 +47,8 @@ export default function StaticRoutingMovedPage() {
           contents: 'testContents',
         },
       },
+      //cache 직접 수정 vs refetch 하기 -> 둘 중에 많이 논의하고 결론 내야함 !!
+
       //refetchQueries : [{query : FETCH_BOARDS}] -> refetch없이 리팩토링
       //  여기서 data는 등록하고 나서 난 결과물, cache는 원래 있던거(객체형태) -> 결국 원래 있떤거에 새로운걸 추가해주면됌
       update(cache, { data }) {

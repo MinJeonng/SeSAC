@@ -57,7 +57,7 @@ export default function ImageUploadPage() {
     // const resultFile0 = await uploadFile({ variables: { file: files[0] } });
     // const resultFile1 = await uploadFile({ variables: { file: files[1] } });
     // const resultFile2 = await uploadFile({ variables: { file: files[2] } });
-    // const urls = [
+    // const urls = [ㄴ
     //   resultFile0.data.uploadFile.url,
     //   resultFile1.data.uploadFile.url,
     //   resultFile2.data.uploadFile.url,
@@ -103,9 +103,9 @@ export default function ImageUploadPage() {
       <input type="file" onChange={onChangeFile(1)} multiple />
       <input type="file" onChange={onChangeFile(2)} multiple />
 
-      <img src={imageUrls[0]} />
+      {/* <img src={imageUrls[0]} />
       <img src={imageUrls[1]} />
-      <img src={imageUrls[2]} />
+      <img src={imageUrls[2]} /> */}
 
       {/* Image는 src 속성이 문자열로 들어와야함 */}
       {imageUrls.map(
