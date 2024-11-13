@@ -3,6 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 import Link from 'next/link';
 import { useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { FixedSizeList as List } from 'react-window';
 
 // 게시글 조회하기
 const FETCH_BOARDS = gql`
@@ -42,23 +43,38 @@ export default function StaticRoutingMovedPage() {
     });
   };
   return (
+    // 다른 페이지를 갔다가 돌아오면 문제가 될 수 있기에 보이는 부분만 렌더링하고 삭제하는 react-window를 쓰는 것
+    //
     <div>
       <InfiniteScroll
         next={onNext} //hasmore가 실행되면 onNext가 실행
         hasMore={hasMore} //hasmore가 true일대 스크롤 내리면 생기는 것
-        loader={<div>로딩중...</div>} //loading 되는 부분
         dataLength={data?.fetchBoards.length ?? 0}
+        scrollableTarget="scrollTarget"
+        loader={<></>} // 스크롤하여 추가로 더 받아와도 가상스크롤로 데이터 갯수는 동일하여 로딩이 풀리지 않음
       >
-        {data?.fetchBoards.map((el) => (
-          <div key={el.number}>
-            <span style={{ margin: '10px' }}>{el.title}</span>
-            <span style={{ margin: '10px' }}>{el.writer}</span>
-          </div>
-        ))}
+        <List
+          height={300}
+          width={'100%'}
+          itemSize={50}
+          itemCount={data?.fetchBoards.length ?? 0} //전체 데이터 개수
+          itemData={data?.fetchBoards}
+          outerElementType={OuterElement}
+        >
+          {({ index, style, data }) => (
+            <div style={style}>
+              <a>{data[index].title}</a>
+              <span style={{ margin: '10px' }}>{data[index].writer}</span>
+              <span style={{ margin: '10px' }}>{data[index].createdAt}</span>
+              <span style={{ margin: '10px' }}>{data[index].contents}</span>
+            </div>
+          )}
+        </List>
       </InfiniteScroll>
-      <Link href={'/section3/31-17-infinite-scroll-without-windowing-moved'}>
+      <Link href={'/section31/31-18-infinite-scroll-with-windowing-moved'}>
         이동하기
       </Link>
     </div>
   );
 }
+const OuterElement = (props) => <div id="scrollTarget" {...props} />;

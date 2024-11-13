@@ -32,4 +32,5 @@ UI 브라우저 : 호환성, 안정성 고민을 해야한다.
 
 
 
-
+한번 가져오기 cheerio
+crawing 꾸준히 가져오기 puppeteer
