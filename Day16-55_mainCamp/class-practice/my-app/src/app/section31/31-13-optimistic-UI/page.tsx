@@ -17,6 +17,7 @@ const LIKE_BOARD = gql`
   }
 `;
 
+// 이거는 실패해도 상관없다!! 그런거에만 써야함 상황마다 잘 판단해야함
 export default function OptimisticUIPage() {
   const { boardId } = useParams();
   const { data } = useQuery(FETCH_BOARD, {
