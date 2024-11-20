@@ -18,3 +18,5 @@ export default function GraphqlMutationPage() {
     </Form>
   );
 }
+
+// 등록, 수정은 나눠서 하는걸 추천, schema부터 initialize까지

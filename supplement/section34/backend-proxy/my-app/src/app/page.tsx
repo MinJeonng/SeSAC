@@ -15,7 +15,7 @@ export default function Home() {
   };
   const onClickbtn = async () => {
     //next에서 자동으로 만들어준 프록시 api
-    const result = await fetch('http://localhost:3000/naver_3');
+    const result = await fetch('http://localhost:3000/naver3');
     const data = await result.text();
     console.log(data);
   };

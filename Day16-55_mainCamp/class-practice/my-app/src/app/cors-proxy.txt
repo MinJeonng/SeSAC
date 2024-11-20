@@ -1,0 +1,5 @@
+241119 정리
+
+CORS(cross-origin-resources-sharing)
+
+프론트에서도 api를 만들 수 있다.
