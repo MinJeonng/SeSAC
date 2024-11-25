@@ -1,0 +1,8 @@
+version: '3.8'
+
+# 컴퓨터 이름 , 들여쓰기하면 자식이라는 의미
+services:
+  myFrontend:
+    build:
+      context: .
+      dockerfile: Dockerfile

@@ -1,0 +1,21 @@
+# 1. 운영체제 및 프로그램 설치 
+# node -> npm(nodsjs 깔리면 자동생성) -> yarn -> git clone -> yarn install  -> yarn build -> yarn start 다 깔고 이 순서로 해야 docker에서 우분투가 설치된 가짜컴퓨터에서 실행이 된다.!! 
+
+FROM ubuntu:22.04
+# RUN : 명령어를 시작할때 쓰는 명령어
+RUN sudo apt install nodejs
+RUN sudo npm install -g yarn 
+
+
+#2. git clone 후 소스코드 가짜 컴퓨터 안에서 다운로드 받기
+
+RUN git clone 내프로젝트주소
+
+# 3. 최종 실행하기
+# 이렇게 해서 만들게되면 컴퓨터 안에서 프로그램이 실행중이되는 것 -> so, 만들어지지 않음. -> 즉 실행명령과 컴퓨터 만들기 영역을 분리 -> CMD로 실행, 종료를 분리 그래서 run은 여러번 쓸수있지만 cmd는 한번만가능
+
+RUN yarn install
+RUN yarn build
+CMD yarn start
+
+# 개선할 점이 있음 다른 파일에 작성
